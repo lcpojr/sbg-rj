@@ -4,10 +4,10 @@ Website for SBG (Sociedade Brasileira de Geologia).
 
 ## Requiriments
 
-- (Python)[https://www.python.org/downloads/] (v3.7+);
-- (Django)[https://www.djangoproject.com/download/] (v2.2+);
-- (Docker)[https://docs.docker.com/install/linux/docker-ce/ubuntu/];
-- (Docker-compose)[https://docs.docker.com/compose/install/];
+- [Python](https://www.python.org/downloads/) (v3.7+);
+- [Django](https://www.djangoproject.com/download/) (v2.2+);
+- [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/);
+- [Docker-compose](https://docs.docker.com/compose/install/);
 
 ## How to use (Developent)
 
