@@ -1,0 +1,10 @@
+# Application
+Django==2.2
+
+# Database
+psycopg2-binary
+
+# Code quality
+pylint
+pytest
+autopep8
