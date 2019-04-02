@@ -27,7 +27,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      SECRET_KEY: )+_5hm21n_$@p0kofd5e4bq@ivl9s0=brcazqo2qouhpd6roaw
+      SECRET_KEY: o&8zwmdqj!-ecoct8^*b+nlkc%-3r=^@fu^&=ovwz1%+k080bw
       DB_USER: postgres
       DB_PASS: postgres
       DB_NAME: sbg_rj
