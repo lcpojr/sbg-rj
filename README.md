@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/lcpojr/sbg-rj/tree/master.svg?style=svg)](https://circleci.com/gh/lcpojr/sbg-rj/tree/master)
+
 # sbg-rj
 
 Website for SBG (Sociedade Brasileira de Geologia).
@@ -26,3 +28,4 @@ docker-compose up -d
 - To clean the database use `docker volume prune -f`;
 - To clean the network use `docker network prune -f`;
 - To access the application container use `docker-compose exec web sh`;
+
