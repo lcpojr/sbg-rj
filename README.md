@@ -20,6 +20,8 @@ docker-compose build
 docker-compose up -d
 ```
 
+* The server will run on `localhost:8000`
+
 **Working with containers**
 
 - To check containers status use `docker-compose ps`;
