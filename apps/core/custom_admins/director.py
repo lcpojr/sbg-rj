@@ -28,7 +28,7 @@ class CustomDirectorAdmin(admin.ModelAdmin):
     ordering = ("first_name", "email", "role")
 
     def save_model(self, request, director, form, change):
-        if not director.pk:
+        if not director.created_by:
             director.created_by = request.user
         else:
             director.updated_by = request.user
