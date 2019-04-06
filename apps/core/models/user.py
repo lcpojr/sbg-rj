@@ -59,7 +59,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     groups = models.ManyToManyField(
         blank=True,
         help_text="Grupo ao qual o usuário pertence. O usuário recebe todas as permissões dos grupos ao qual ele pertence.",
-        related_name="user_set",
+        related_name="user_groups",
         related_query_name="user",
         to="auth.Group",
         verbose_name="Grupos de usuário",
@@ -68,7 +68,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     user_permissions = models.ManyToManyField(
         blank=True,
         help_text="Permissões específicas do usuário.",
-        related_name="user_set",
+        related_name="user_permissions",
         related_query_name="user",
         to="auth.Permission",
         verbose_name="Permissões do usuário",
