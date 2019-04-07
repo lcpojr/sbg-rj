@@ -3,17 +3,17 @@ from apps.core.forms.director import DirectorCreateForm, DirectorUpdateForm
 
 
 class CustomDirectorAdmin(admin.ModelAdmin):
-    # The forms to add and change user instances
+    # The forms to add and change director instances
     add_form = DirectorCreateForm
     form = DirectorUpdateForm
 
     readonly_fields = ["created_at", "updated_at", "created_by", "updated_by"]
 
-    # The fields to be used in displaying the User model.
+    # The fields to be used in displaying the Director model.
     list_display = ("first_name", "email", "role")
     list_filter = ("first_name", "email", "role")
 
-    # The filds to be used in updates on User model.
+    # The filds to be used in updates on Director model.
     fieldsets = (
         ("Identidade", {"fields": ("first_name", "last_name", "email", "role")}),
         ("Periodo de atividade", {"fields": ("started_at", "ends_at")}),
@@ -25,7 +25,7 @@ class CustomDirectorAdmin(admin.ModelAdmin):
 
     # Search and ordering
     search_fields = ("first_name", "email", "role")
-    ordering = ("first_name", "email", "role")
+    ordering = ("first_name", "created_at")
 
     def save_model(self, request, director, form, change):
         if not director.created_by:

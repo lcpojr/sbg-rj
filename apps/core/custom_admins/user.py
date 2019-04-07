@@ -8,9 +8,11 @@ class CustomUserAdmin(UserAdmin):
     add_form = UserCreateForm
     form = UserUpdateForm
 
+    readonly_fields = ["created_at", "updated_at"]
+
     # The fields to be used in displaying the User model.
-    list_display = ("email", "first_name", "last_login", "is_active")
-    list_filter = ("email", "first_name", "last_login", "is_active")
+    list_display = ("first_name", "email", "last_login", "is_active")
+    list_filter = ("first_name", "email", "last_login", "is_active")
 
     # The filds to be used in updates on User model.
     fieldsets = (
@@ -27,7 +29,7 @@ class CustomUserAdmin(UserAdmin):
         ),
     )
     # Search and ordering
-    search_fields = ("email",)
-    ordering = ("email",)
+    search_fields = ("first_name", "email")
+    ordering = ("first_name", "created_at")
     filter_horizontal = ()
 

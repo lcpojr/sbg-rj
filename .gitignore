@@ -107,6 +107,7 @@ venv.bak/
 staticfiles/
 
 # Mediafiles
+media/
 mediafiles/
 
 # Logs
