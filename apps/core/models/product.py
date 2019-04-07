@@ -3,7 +3,6 @@ import uuid
 from django.core.validators import FileExtensionValidator
 from django.db import models
 from .user import User
-from .gallery import Gallery
 
 
 class Product(models.Model):
@@ -52,14 +51,6 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Ultima atualização")
 
     # Associations
-    gallery = models.ForeignKey(
-        Gallery,
-        help_text="Galeria que contem o registro (foto)",
-        related_name="gallery_photos",
-        verbose_name="Fotos",
-        on_delete=models.CASCADE
-    )
-
     created_by = models.ForeignKey(
         User,
         blank=True,
