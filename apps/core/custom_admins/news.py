@@ -1,13 +1,16 @@
 from django.contrib import admin
-from apps.core.forms.news import NewsCreateForm, NewsUpdateForm
+from django.db import models
+
+from froala_editor.widgets import FroalaEditor
 
 
 class CustomNewsAdmin(admin.ModelAdmin):
     # The forms to add and change news instances
-    add_form = NewsCreateForm
-    form = NewsUpdateForm
+    empty_value_display = "----"
 
     readonly_fields = ["created_at", "updated_at", "created_by", "updated_by"]
+
+    formfield_overrides = {models.TextField: {"widget": FroalaEditor}}
 
     # The fields to be used in displaying the News model.
     list_display = ("title", "publish_date")
@@ -17,7 +20,7 @@ class CustomNewsAdmin(admin.ModelAdmin):
     fieldsets = (
         (
             "Informações básicas",
-            {"fields": ("title", "resume", "descriptrion", "publish_date")},
+            {"fields": ("title", "resume", "description", "publish_date")},
         ),
         ("Conteúdo", {"fields": ("image", "icon")}),
         (

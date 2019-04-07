@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 DEFAULT_APPS = [
+    "flat_responsive",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -43,7 +44,7 @@ DEFAULT_APPS = [
     "django.contrib.staticfiles",
 ]
 
-CUSTOM_APPS = ["apps.core"]
+CUSTOM_APPS = ["froala_editor", "apps.core"]
 
 INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS
 
@@ -130,3 +131,7 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/pt-br/2.1/ref/settings/#media-root
 
 MEDIA_URL = "/media/"
+
+# Text editors
+
+FROALA_EDITOR_THEME = "gray"

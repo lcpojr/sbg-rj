@@ -1,11 +1,9 @@
 from django.contrib import admin
-from apps.core.forms.product import ProductCreateForm, ProductUpdateForm
 
 
 class CustomProductAdmin(admin.ModelAdmin):
     # The forms to add and change products instances
-    add_form = ProductCreateForm
-    form = ProductUpdateForm
+    empty_value_display = "----"
 
     readonly_fields = ["created_at", "updated_at", "created_by", "updated_by"]
 

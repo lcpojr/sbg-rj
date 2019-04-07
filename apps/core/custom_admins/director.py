@@ -1,21 +1,19 @@
 from django.contrib import admin
-from apps.core.forms.director import DirectorCreateForm, DirectorUpdateForm
 
 
 class CustomDirectorAdmin(admin.ModelAdmin):
     # The forms to add and change director instances
-    add_form = DirectorCreateForm
-    form = DirectorUpdateForm
+    empty_value_display = "----"
 
     readonly_fields = ["created_at", "updated_at", "created_by", "updated_by"]
 
     # The fields to be used in displaying the Director model.
-    list_display = ("first_name", "email", "role")
-    list_filter = ("first_name", "email", "role")
+    list_display = ("first_name", "last_name", "email", "role")
+    list_filter = ("first_name", "last_name", "email", "role")
 
     # The filds to be used in updates on Director model.
     fieldsets = (
-        ("Identidade", {"fields": ("first_name", "last_name", "email", "role")}),
+        ("Identidade", {"fields": (("first_name", "last_name"), "email", "role")}),
         ("Periodo de atividade", {"fields": ("started_at", "ends_at")}),
         (
             "Monitoramento",
@@ -24,7 +22,7 @@ class CustomDirectorAdmin(admin.ModelAdmin):
     )
 
     # Search and ordering
-    search_fields = ("first_name", "email", "role")
+    search_fields = ("first_name", "last_name", "email", "role")
     ordering = ("first_name", "created_at")
 
     def save_model(self, request, director, form, change):

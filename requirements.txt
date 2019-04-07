@@ -2,6 +2,10 @@
 Django==2.2
 Pillow
 
+# Admin plugins
+django-froala-editor
+django-flat-responsive
+
 # Database
 psycopg2-binary
 
