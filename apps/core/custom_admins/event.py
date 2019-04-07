@@ -9,11 +9,11 @@ class CustomEventAdmin(admin.ModelAdmin):
 
     readonly_fields = ["created_at", "updated_at", "created_by", "updated_by"]
 
-    # The fields to be used in displaying the User model.
+    # The fields to be used in displaying the Event model.
     list_display = ("title", "description")
     list_filter = ("title", "description")
 
-    # The filds to be used in updates on User model.
+    # The filds to be used in updates on Event model.
     fieldsets = (
         ("Identidade", {"fields": ("title", "description")}),
         ("Periodo de atividade", {"fields": ("starts_at", "ends_at")}),
