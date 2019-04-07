@@ -34,7 +34,7 @@ class Photo(models.Model):
         help_text="Galeria que contem o registro (foto)",
         related_name="gallery_photos",
         verbose_name="Galeria",
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
 
     created_by = models.ForeignKey(
@@ -62,4 +62,4 @@ class Photo(models.Model):
         verbose_name_plural = "Fotos"
 
     def __str__(self):
-        return self.image
+        return "{}".format(self.image)

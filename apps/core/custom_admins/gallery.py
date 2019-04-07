@@ -1,4 +1,7 @@
 from django.contrib import admin
+from django.db import models
+
+from froala_editor.widgets import FroalaEditor
 
 
 class CustomGalleryAdmin(admin.ModelAdmin):
@@ -7,17 +10,18 @@ class CustomGalleryAdmin(admin.ModelAdmin):
 
     readonly_fields = ["created_at", "updated_at", "created_by", "updated_by"]
 
+    formfield_overrides = {models.TextField: {"widget": FroalaEditor}}
+
     # The fields to be used in displaying the Gallery model.
-    list_display = ("title", "description", "category")
+    list_display = ("title", "category")
     list_filter = ("title", "description", "category")
 
     # The filds to be used in updates on Gallery model.
     fieldsets = (
-        ("Conteúdo", {"fields": ("photos")}),
+        ("Informações básicas", {"fields": ("title", "description", "category")}),
         (
             "Monitoramento",
-            {"fields": ("created_at", "updated_at",
-                        "created_by", "updated_by")},
+            {"fields": ("created_at", "updated_at", "created_by", "updated_by")},
         ),
     )
 

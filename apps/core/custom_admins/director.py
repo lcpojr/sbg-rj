@@ -13,7 +13,10 @@ class CustomDirectorAdmin(admin.ModelAdmin):
 
     # The filds to be used in updates on Director model.
     fieldsets = (
-        ("Identidade", {"fields": (("first_name", "last_name"), "email", "role")}),
+        (
+            "Informações básicas",
+            {"fields": (("first_name", "last_name"), "email", "role")},
+        ),
         ("Periodo de atividade", {"fields": ("started_at", "ends_at")}),
         (
             "Monitoramento",

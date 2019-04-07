@@ -18,7 +18,7 @@ class CustomEventAdmin(admin.ModelAdmin):
 
     # The filds to be used in updates on Event model.
     fieldsets = (
-        ("Identidade", {"fields": ("title", "description")}),
+        ("Informações básicas", {"fields": ("title", "description")}),
         ("Periodo de atividade", {"fields": ("starts_at", "ends_at")}),
         ("Conteúdo", {"fields": ("image", "icon", "apresentation")}),
         (
