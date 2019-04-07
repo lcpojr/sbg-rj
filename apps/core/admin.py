@@ -5,11 +5,13 @@ from .custom_admins.user import CustomUserAdmin
 from .custom_admins.director import CustomDirectorAdmin
 from .custom_admins.event import CustomEventAdmin
 from .custom_admins.news import CustomNewsAdmin
+from .custom_admins.product import CustomProductAdmin
 
 from .models.user import User
 from .models.director import Director
 from .models.event import Event
 from .models.news import News
+from .models.product import Product
 
 
 class CustomAdminSite(AdminSite):
