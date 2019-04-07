@@ -4,6 +4,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
+STATIC_ROOT = "/site/staticfiles/"
+MEDIA_ROOT = "/site/mediafiles/"
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": True,

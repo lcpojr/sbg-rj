@@ -80,7 +80,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ["first_name"]
 
     class Meta:
-        verbose_name_plural = "Users"
+        verbose_name = "Usuário"
+        verbose_name_plural = "Usuários"
 
     def __str__(self):
-        return self.email
+        return "{} ()".format(self.first_name, self.email)

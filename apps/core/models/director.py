@@ -32,7 +32,7 @@ class Director(models.Model):
         blank=True,
         null=True,
         help_text="Usuário responsável pela criação do registro (diretor).",
-        related_name="user_creator_set",
+        related_name="director_creator_set",
         verbose_name="Criador",
         on_delete=models.SET_NULL,
     )
@@ -42,8 +42,14 @@ class Director(models.Model):
         blank=True,
         null=True,
         help_text="Usuário responsável pela ultima atualização do registro (diretor).",
-        related_name="user_updater_set",
+        related_name="director_updater_set",
         verbose_name="Atualizador",
         on_delete=models.SET_NULL,
     )
 
+    class Meta:
+        verbose_name = "Diretor"
+        verbose_name_plural = "Diretores"
+
+    def __str__(self):
+        return "{} ()".format(self.first_name, self.email)

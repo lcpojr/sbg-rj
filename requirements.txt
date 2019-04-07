@@ -1,5 +1,6 @@
 # Application
 Django==2.2
+Pillow
 
 # Database
 psycopg2-binary
