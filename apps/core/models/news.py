@@ -17,8 +17,8 @@ class News(models.Model):
     resume = models.TextField(verbose_name="Resumo da Notícia")
     description = models.TextField(verbose_name="Descrição")
     publish_date = models.DateTimeField(verbose_name="Data da Notícia")
-    
-    #Content
+
+    # Content
     image = models.ImageField(
         verbose_name="Imagem",
         upload_to="media/news/%Y-%m-%d",
@@ -49,7 +49,7 @@ class News(models.Model):
         blank=True,
         null=True,
         help_text="Usuário responsável pela criação do registro (Notícia).",
-        related_name="user_creator_set",
+        related_name="news_creator_set",
         verbose_name="Criador",
         on_delete=models.SET_NULL,
     )
@@ -59,7 +59,7 @@ class News(models.Model):
         blank=True,
         null=True,
         help_text="Usuário responsável pela ultima atualização do registro (Notícia).",
-        related_name="user_updater_set",
+        related_name="news_updater_set",
         verbose_name="Atualizador",
         on_delete=models.SET_NULL,
     )
@@ -67,6 +67,6 @@ class News(models.Model):
     class Meta:
         verbose_name = "Notícia"
         verbose_name_plural = "Notícias"
-    
+
     def __str__(self):
-        return self.title
+        return "{} ()".format(self.title, self.resume)

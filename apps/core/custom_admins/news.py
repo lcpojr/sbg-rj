@@ -15,18 +15,15 @@ class CustomNewsAdmin(admin.ModelAdmin):
 
     # The fields to be used in updates on News model.
     fieldsets = (
-        (   
-            "Informações da Notícia", 
-            {"fields": ("title", "resume", "descriptrion", "publish_date")}
-        ),
         (
-            "Imagens da Notícia", 
-            {"fields": ("image", "icon")}
+            "Informações básicas",
+            {"fields": ("title", "resume", "descriptrion", "publish_date")},
         ),
+        ("Conteúdo", {"fields": ("image", "icon")}),
         (
             "Monitoramento",
             {"fields": ("created_at", "updated_at", "created_by", "updated_by")},
-        )
+        ),
     )
 
     # Search and ordering
