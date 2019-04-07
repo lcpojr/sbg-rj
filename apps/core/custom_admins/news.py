@@ -3,7 +3,7 @@ from apps.core.forms.news import NewsCreateForm, NewsUpdateForm
 
 
 class CustomNewsAdmin(admin.ModelAdmin):
-    # The forms to add and change News instances
+    # The forms to add and change news instances
     add_form = NewsCreateForm
     form = NewsUpdateForm
 
