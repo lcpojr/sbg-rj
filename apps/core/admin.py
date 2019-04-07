@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.contrib.admin import AdminSite
 
 from .custom_admins.user import CustomUserAdmin

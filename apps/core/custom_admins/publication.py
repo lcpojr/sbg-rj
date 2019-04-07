@@ -1,11 +1,9 @@
 from django.contrib import admin
-from apps.core.forms.publication import PublicationCreateForm, PublicationUpdateForm
 
 
 class CustomPublicationAdmin(admin.ModelAdmin):
     # The forms to add and change publication instances
-    add_form = PublicationCreateForm
-    form = PublicationUpdateForm
+    empty_value_display = "----"
 
     readonly_fields = ["created_at", "updated_at", "created_by", "updated_by"]
 
