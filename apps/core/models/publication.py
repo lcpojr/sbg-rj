@@ -59,4 +59,4 @@ class Publication(models.Model):
         verbose_name_plural = "Publicações"
 
     def __str__(self):
-        return "{} ()".format(self.name, self.category)
+        return "{} {}".format(self.name, self.category)

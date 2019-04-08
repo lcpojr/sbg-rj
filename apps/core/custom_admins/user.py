@@ -17,7 +17,10 @@ class CustomUserAdmin(UserAdmin):
 
     # The filds to be used in updates on User model.
     fieldsets = (
-        ("Identidade", {"fields": (("first_name", "last_name"), "email", "password")}),
+        (
+            "Informações básicas",
+            {"fields": (("first_name", "last_name"), "email", "password")},
+        ),
         ("Permissões", {"fields": ("is_superuser",)}),
         ("Status", {"fields": ("is_active",)}),
     )

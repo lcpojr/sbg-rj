@@ -112,3 +112,6 @@ mediafiles/
 
 # Logs
 logs/
+
+# Ignore dev configs
+sbg/settings/dev.py
