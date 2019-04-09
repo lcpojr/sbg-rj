@@ -8,21 +8,27 @@ class CustomPublicationAdmin(admin.ModelAdmin):
     readonly_fields = ["created_at", "updated_at", "created_by", "updated_by"]
 
     # The fields to be used in displaying the Publication model.
-    list_display = ("name", "category")
-    list_filter = ("name", "category")
+    list_display = ("name", "category", "document", "created_at", "updated_at")
+    list_filter = ("name", "category", "created_at", "updated_at")
 
     # The fields to be used in updates on Publication model.
     fieldsets = (
-        ("Informações básicas", {"fields": ("name", "category")}),
-        ("Conteúdo", {"fields": ("document",)}),
+        (
+            "Informações básicas",
+            {"classes": ("grp-collapse grp-open",), "fields": ("name", "category")},
+        ),
+        ("Conteúdo", {"classes": ("grp-collapse grp-open",), "fields": ("document",)}),
         (
             "Monitoramento",
-            {"fields": ("created_at", "updated_at", "created_by", "updated_by")},
+            {
+                "classes": ("grp-collapse grp-closed",),
+                "fields": ("created_at", "updated_at", "created_by", "updated_by"),
+            },
         ),
     )
 
     # Search and ordering
-    search_fields = ("name", "category")
+    search_fields = ("name", "category", "created_at", "updated_at")
     ordering = ("name", "category")
 
     def save_model(self, request, publication, form, change):

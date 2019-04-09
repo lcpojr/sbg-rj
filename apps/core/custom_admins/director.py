@@ -8,24 +8,58 @@ class CustomDirectorAdmin(admin.ModelAdmin):
     readonly_fields = ["created_at", "updated_at", "created_by", "updated_by"]
 
     # The fields to be used in displaying the Director model.
-    list_display = ("first_name", "last_name", "email", "role")
-    list_filter = ("first_name", "last_name", "email", "role")
+    list_display = (
+        "first_name",
+        "last_name",
+        "email",
+        "role",
+        "created_at",
+        "updated_at",
+    )
+    list_filter = (
+        "first_name",
+        "last_name",
+        "email",
+        "role",
+        "created_at",
+        "updated_at",
+    )
 
     # The filds to be used in updates on Director model.
     fieldsets = (
         (
             "Informações básicas",
-            {"fields": (("first_name", "last_name"), "email", "role")},
+            {
+                "classes": ("grp-collapse grp-open",),
+                "fields": (("first_name", "last_name"), "email", "role"),
+            },
         ),
-        ("Periodo de atividade", {"fields": ("started_at", "ends_at")}),
+        (
+            "Periodo de atividade",
+            {
+                "classes": ("grp-collapse grp-open",),
+                "fields": ("started_at", "ends_at"),
+            },
+        ),
         (
             "Monitoramento",
-            {"fields": ("created_at", "updated_at", "created_by", "updated_by")},
+            {
+                "classes": ("grp-collapse grp-closed",),
+                "fields": ("created_at", "updated_at", "created_by", "updated_by"),
+            },
         ),
     )
 
     # Search and ordering
-    search_fields = ("first_name", "last_name", "email", "role")
+    search_fields = (
+        "first_name",
+        "last_name",
+        "email",
+        "role",
+        "created_at",
+        "updated_at",
+    )
+
     ordering = ("first_name", "created_at")
 
     def save_model(self, request, director, form, change):

@@ -13,20 +13,29 @@ class CustomGalleryAdmin(admin.ModelAdmin):
     formfield_overrides = {models.TextField: {"widget": FroalaEditor}}
 
     # The fields to be used in displaying the Gallery model.
-    list_display = ("title", "category")
-    list_filter = ("title", "description", "category")
+    list_display = ("title", "category", "created_at", "updated_at")
+    list_filter = ("title", "category", "created_at", "updated_at")
 
     # The filds to be used in updates on Gallery model.
     fieldsets = (
-        ("Informações básicas", {"fields": ("title", "description", "category")}),
+        (
+            "Informações básicas",
+            {
+                "classes": ("grp-collapse grp-open",),
+                "fields": ("title", "description", "category"),
+            },
+        ),
         (
             "Monitoramento",
-            {"fields": ("created_at", "updated_at", "created_by", "updated_by")},
+            {
+                "classes": ("grp-collapse grp-closed",),
+                "fields": ("created_at", "updated_at", "created_by", "updated_by"),
+            },
         ),
     )
 
     # Search and ordering
-    search_fields = ("title", "description", "category")
+    search_fields = ("title", "category", "created_at", "updated_at")
     ordering = ("title", "created_at")
 
     def save_model(self, request, gallery, form, change):
