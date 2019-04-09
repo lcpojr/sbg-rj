@@ -4,7 +4,7 @@ Pillow
 
 # Admin plugins
 django-froala-editor
-django-flat-responsive
+django-grappelli
 
 # Database
 psycopg2-binary

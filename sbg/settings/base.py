@@ -35,7 +35,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 DEFAULT_APPS = [
-    "flat_responsive",
+    "grappelli",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -126,12 +126,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = "/static/"
+STATIC_ROOT = "/var/www/staticfiles/"
 
 # Media files (Uploaded by User)
 # https://docs.djangoproject.com/pt-br/2.1/ref/settings/#media-root
 
 MEDIA_URL = "/media/"
+MEDIA_ROOT = "/var/www/mediafiles/"
 
 # Text editors
+# https://github.com/froala/django-froala-editor
 
 FROALA_EDITOR_THEME = "gray"
+
+# Admin theme
+# https://django-grappelli.readthedocs.io/en/latest/quickstart.html
+
+GRAPPELLI_AUTOCOMPLETE_LIMIT = 30

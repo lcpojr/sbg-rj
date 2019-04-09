@@ -13,24 +13,33 @@ class CustomNewsAdmin(admin.ModelAdmin):
     formfield_overrides = {models.TextField: {"widget": FroalaEditor}}
 
     # The fields to be used in displaying the News model.
-    list_display = ("title", "publish_date")
-    list_filter = ("title", "publish_date")
+    list_display = ("title", "publish_date", "created_at", "updated_at")
+    list_filter = ("title", "publish_date", "created_at", "updated_at")
 
     # The fields to be used in updates on News model.
     fieldsets = (
         (
             "Informações básicas",
-            {"fields": ("title", "resume", "description", "publish_date")},
+            {
+                "classes": ("grp-collapse grp-open",),
+                "fields": ("title", "resume", "description", "publish_date"),
+            },
         ),
-        ("Conteúdo", {"fields": ("image", "icon")}),
+        (
+            "Conteúdo",
+            {"classes": ("grp-collapse grp-open",), "fields": ("image", "icon")},
+        ),
         (
             "Monitoramento",
-            {"fields": ("created_at", "updated_at", "created_by", "updated_by")},
+            {
+                "classes": ("grp-collapse grp-closed",),
+                "fields": ("created_at", "updated_at", "created_by", "updated_by"),
+            },
         ),
     )
 
     # Search and ordering
-    search_fields = ("title", "publish_date")
+    search_fields = ("title", "publish_date", "created_at", "updated_at")
     ordering = ("title", "publish_date")
 
     def save_model(self, request, news, form, change):

@@ -26,10 +26,8 @@ class CustomAdminSite(AdminSite):
     index_title = "Administração"
 
 
-admin_site = CustomAdminSite(name="custom_admin")
-
 # Registering admin endpoints
-
+admin_site = CustomAdminSite(name="custom_admin")
 admin_site.register(User, CustomUserAdmin)
 admin_site.register(Director, CustomDirectorAdmin)
 admin_site.register(Event, CustomEventAdmin)

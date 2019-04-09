@@ -8,21 +8,27 @@ class CustomPhotoAdmin(admin.ModelAdmin):
     readonly_fields = ["created_at", "updated_at", "created_by", "updated_by"]
 
     # The fields to be used in displaying the Photo model.
-    list_display = ("id", "image", "gallery")
-    list_filter = ("id", "image", "gallery")
+    list_display = ("id", "image", "gallery", "created_at", "updated_at")
+    list_filter = ("id", "image", "gallery", "created_at", "updated_at")
 
     # The filds to be used in updates on Photo model.
     fieldsets = (
-        ("Informações básicas", {"fields": ("image", "gallery")}),
+        (
+            "Informações básicas",
+            {"classes": ("grp-collapse grp-open",), "fields": ("image", "gallery")},
+        ),
         (
             "Monitoramento",
-            {"fields": ("created_at", "updated_at", "created_by", "updated_by")},
+            {
+                "classes": ("grp-collapse grp-closed",),
+                "fields": ("created_at", "updated_at", "created_by", "updated_by"),
+            },
         ),
     )
 
     # Search and ordering
-    search_fields = ("id", "image", "gallery")
-    ordering = ("id", "image", "gallery", "created_at")
+    search_fields = ("id", "image", "gallery", "created_at", "updated_at")
+    ordering = ("id", "created_at")
 
     def save_model(self, request, photo, form, change):
         if not photo.created_by:

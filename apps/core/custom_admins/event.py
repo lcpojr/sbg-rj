@@ -13,22 +13,37 @@ class CustomEventAdmin(admin.ModelAdmin):
     formfield_overrides = {models.TextField: {"widget": FroalaEditor}}
 
     # The fields to be used in displaying the Event model.
-    list_display = ("title", "description")
-    list_filter = ("title", "description")
+    list_display = ("title", "starts_at", "ends_at", "created_at", "updated_at")
+    list_filter = ("title", "starts_at", "ends_at", "created_at", "updated_at")
 
     # The filds to be used in updates on Event model.
     fieldsets = (
-        ("Informações básicas", {"fields": ("title", "description")}),
-        ("Periodo de atividade", {"fields": ("starts_at", "ends_at")}),
-        ("Conteúdo", {"fields": ("image", "icon", "apresentation")}),
+        (
+            "Informações básicas",
+            {"classes": ("grp-collapse grp-open",), "fields": ("title", "description")},
+        ),
+        (
+            "Periodo de atividade",
+            {"classes": ("grp-collapse grp-open",), "fields": ("starts_at", "ends_at")},
+        ),
+        (
+            "Conteúdo",
+            {
+                "classes": ("grp-collapse grp-open",),
+                "fields": ("image", "icon", "apresentation"),
+            },
+        ),
         (
             "Monitoramento",
-            {"fields": ("created_at", "updated_at", "created_by", "updated_by")},
+            {
+                "classes": ("grp-collapse grp-closed",),
+                "fields": ("created_at", "updated_at", "created_by", "updated_by"),
+            },
         ),
     )
 
     # Search and ordering
-    search_fields = ("title", "description")
+    search_fields = ("title", "starts_at", "ends_at", "created_at", "updated_at")
     ordering = ("title", "created_at")
 
     def save_model(self, request, event, form, change):
