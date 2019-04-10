@@ -1,0 +1,144 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>SBG-RJ</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Manifest -->
+    <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="{% static 'browserconfig.xml' %}">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/icons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/icons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/icons/favicon-16x16.png' %}">
+    <link rel="mask-icon" href="{% static 'img/icons/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <link rel="shortcut icon" href="{% static 'img/icons/favicon.ico' %}">
+
+    <!-- Google Fonts -->
+    <link href="{% static 'lib/font-google/fonts.css' %}" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/magnific-popup/magnific-popup.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    
+    {% block css %}{% endblock %}
+    
+  </head>
+
+  <body id="body">
+  
+    <!--==========================
+      Header
+    ============================-->
+    <header id="header">
+      <div class="container">
+        <div id="logo" class="pull-left">
+          <h1>
+            <a href="#body" class="scrollto">
+              <img src="{% static 'img/logo.jpg' %}" width=60 heigth=60 alt="Logotipo Sociedade Brasileira de Geologia" title="Sociedade Brasileira de Geologia" />
+              Núcleo <span>Rio de Janeiro</span>
+            </a>
+          </h1>
+        </div>
+        
+        {% block menu %}{% endblock %}
+
+      </div>
+    </header><!-- #header -->
+
+    {% block intro %}{% endblock  %}
+
+    <main id="main">
+
+      {% block content %}{% endblock %}
+
+    </main>
+
+    <!--==========================
+      Footer
+    ============================-->
+    <footer id="footer">
+      <div class="container">
+        <br/><br/>
+        <div class="row">
+          <div class="col-md-2">
+            <img id="logo-footer" src="{% static 'img/logo.jpg' %}" />
+          </div>
+          <div class="col-md-10">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="contact-data">
+                  <i class="ion-ios-location-outline"></i> ENDEREÇO <br/><br/>
+                  <a href="#"><address>A108 Adam Street, NY 535022, USA</address></a>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="contact-data">
+                  <i class="ion-ios-telephone-outline"></i> TELEFONE <br/><br/>
+                  <a href="tel:+155895548855">+1 5589 55488 55</a>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="contact-data">
+                  <i class="ion-ios-email-outline"></i> EMAIL <br/><br/>
+                  <a href="mailto:info@example.com">info@example.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright">
+          &copy; Copyright <strong>Reveal</strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
+          -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </footer><!-- #footer -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'lib/jquery/jquery-migrate.min.js' %}"></script>
+    <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/superfish/hoverIntent.js' %}"></script>
+    <script src="{% static 'lib/superfish/superfish.min.js' %}"></script>
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'lib/magnific-popup/magnific-popup.min.js' %}"></script>
+    <script src="{% static 'lib/sticky/sticky.js' %}"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    {% block js %}{% endblock %}
+
+  </body>
+</html>

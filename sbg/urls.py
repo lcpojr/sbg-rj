@@ -23,7 +23,11 @@ static_uris = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 media_uris = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns = (
-    [path("grappelli/", include("grappelli.urls")), path("admin/", admin_site.urls)]
+    [
+        path("grappelli/", include("grappelli.urls")),
+        path("admin/", admin_site.urls),
+        path("", include("apps.web.urls", namespace="website")),
+    ]
     + static_uris
     + media_uris
 )

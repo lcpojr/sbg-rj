@@ -27,7 +27,7 @@ SECRET_KEY = (
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -42,9 +42,10 @@ DEFAULT_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "froala_editor",
 ]
 
-CUSTOM_APPS = ["froala_editor", "apps.core"]
+CUSTOM_APPS = ["apps.core", "apps.web"]
 
 INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS
 
@@ -60,10 +61,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "sbg.urls"
 
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "templates/")],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -126,16 +128,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = "/var/www/staticfiles/"
+STATIC_ROOT = "/staticfiles/"
 
 # Media files (Uploaded by User)
 # https://docs.djangoproject.com/pt-br/2.1/ref/settings/#media-root
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = "/var/www/mediafiles/"
+MEDIA_ROOT = "/mediafiles/"
 
-# Text editors
-# https://github.com/froala/django-froala-editor
+# Text editors (Html and formated texts)
 
 FROALA_EDITOR_THEME = "gray"
 
