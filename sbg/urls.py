@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from django.urls import path, include
 from apps.core.admin import admin_site
 
+<<<<<<< HEAD
 static_uris = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 media_uris = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
@@ -26,5 +27,14 @@ urlpatterns = (
     [path("grappelli/", include("grappelli.urls")), path("admin/", admin_site.urls)]
     + static_uris
     + media_uris
+=======
+urlpatterns = (
+    [
+        path("admin/", admin_site.urls),
+        path("", include("apps.web.urls", namespace="website")),
+    ]
+    + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+>>>>>>> feat: add basic template
 )
 
