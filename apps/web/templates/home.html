@@ -1,0 +1,250 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block menu %}
+<!--==========================
+    Menu
+============================-->
+<nav id="nav-menu-container">
+    <ul class="nav-menu">
+        <li class="menu-active"><a href="#body">Home</a></li>
+        <li class="menu-has-children"><a href="">SBG-RJ</a>
+            <ul>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Eventos</a></li>
+                <li><a href="#">Notícias</a></li>
+                <li><a href="#">Produtos</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Publicações</a></li>
+        <li><a href="#">Galeria</a></li>
+        <li><a href="#">Regionais</a></li>
+        <li><a href="#">Contato</a></li>
+    </ul>
+</nav><!-- #nav-menu-container -->
+{% endblock menu %}
+
+{% block intro %}
+<!--==========================
+    Intro Section
+============================-->
+<section id="intro">
+    <div class="intro-content">
+        <h2>SOCIEDADE BRASILEIRA DE GEOLOGIA – NÚCLEO MINAS GERAIS</h2>
+        <h5>“DIFUNDINDO O CONHECIMENTO E O DESENVOLVIMENTO DAS GEOCIÊNCIAS”</h5>
+        <div>
+            <a href="#" class="btn-events scrollto">Eventos</a>
+            <a href="#" class="btn-news scrollto">Notícias</a>
+        </div>
+    </div>
+    <div id="intro-carousel" class="owl-carousel" >
+        <div class="item" style="background-image: url({% static 'img/intro-carousel/1.jpg' %});"></div>
+        <div class="item" style="background-image: url({% static 'img/intro-carousel/2.jpg' %});"></div>
+        <div class="item" style="background-image: url({% static 'img/intro-carousel/3.jpg' %});"></div>
+        <div class="item" style="background-image: url({% static 'img/intro-carousel/4.jpg' %});"></div>
+        <div class="item" style="background-image: url({% static 'img/intro-carousel/5.jpg' %});"></div>
+    </div>
+</section><!-- #intro -->
+{% endblock  %}
+
+{% block content %}
+    <!--==========================
+      About Section
+    ============================-->
+    <section id="about" class="wow fadeInUp">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 about-img">
+            <img src="img/about-img.jpg" alt="">
+          </div>
+
+          <div class="col-lg-6 content">
+            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing</h2>
+            <h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
+
+            <ul>
+              <li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              <li><i class="ion-android-checkmark-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+              <li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- #about -->
+
+    <!--==========================
+      Membership
+    ============================-->
+    <section id="membership" class="wow fadeInUp">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-left">
+            <h3 class="cta-title">Torne-se membro</h3>
+            <p class="cta-text"> 
+              Faça parte de uma associação científica com mais de 70 anos de história e prestígio internacional
+            </p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="http://www.sbgeo.org.br/">Inscreva-se</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- #membership -->
+
+    <!--==========================
+      News Section
+    ============================-->
+    <section id="news" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Notícias</h2>
+          <p>Os ultimos acontecimentos na area geológica</p>
+        </div>
+        <div class="owl-carousel news-carousel">
+
+            <div class="news-item">
+              <a href="#">
+                <img src="https://s1.thingpic.com/images/9n/LwDXYNgZmChHGYJnuLaSVMma.jpeg" class="news-img" alt="">
+              </a>
+              <br/>
+              <p>
+                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+              </p>
+            </div>
+
+            <div class="news-item">
+              <a href="#">
+                <img src="https://s1.thingpic.com/images/9n/LwDXYNgZmChHGYJnuLaSVMma.jpeg" class="news-img" alt="">
+              </a>
+              <br/>
+              <p>
+                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+              </p>
+            </div>
+
+            <div class="news-item">
+              <a href="#">
+                <img src="https://s1.thingpic.com/images/9n/LwDXYNgZmChHGYJnuLaSVMma.jpeg" class="news-img" alt="">
+              </a>
+              <br/>
+              <p>
+                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+              </p>
+            </div>
+
+            <div class="news-item">
+              <a href="#">
+                <img src="https://s1.thingpic.com/images/9n/LwDXYNgZmChHGYJnuLaSVMma.jpeg" class="news-img" alt="">
+              </a>
+              <br/>
+              <p>
+                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+              </p>
+            </div>
+
+        </div>
+
+      </div>
+    </section><!-- #news -->
+
+    <!--==========================
+      Events
+    ============================-->
+    <section id="events" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Eventos</h2>
+          <p>Próximos eventos no núcleo do Rio de Janeiro</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="event-data">
+              <div class="pic">
+                <img src="https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/22223742/Events-1200x630.jpg" alt="">
+              </div>
+              <div class="details">
+                <h4>SIMPÓSIO DO OURO EM MINAS GERAIS</h4>
+                <span>09 de novembro de 2018</span>
+                <div class="know-more">
+                  <a href="#">Saiba mais<i class="fa fa-question-circle"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="event-data">
+              <div class="pic">
+                <img src="https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/22223742/Events-1200x630.jpg" alt="">
+              </div>
+              <div class="details">
+                <h4>SIMPÓSIO DO OURO EM MINAS GERAIS</h4>
+                <span>09 de novembro de 2018</span>
+                <div class="know-more">
+                  <a href="#">Saiba mais<i class="fa fa-question-circle"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="event-data">
+              <div class="pic">
+                <img src="https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/22223742/Events-1200x630.jpg" alt="">
+              </div>
+              <div class="details">
+                <h4>SIMPÓSIO DO OURO EM MINAS GERAIS</h4>
+                <span>09 de novembro de 2018</span>
+                <div class="know-more">
+                  <a href="#">Saiba mais<i class="fa fa-question-circle"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="event-data">
+              <div class="pic">
+                <img src="https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/22223742/Events-1200x630.jpg" alt="">
+              </div>
+              <div class="details">
+                <h4>SIMPÓSIO DO OURO EM MINAS GERAIS</h4>
+                <span>09 de novembro de 2018</span>
+                <div class="know-more">
+                  <a href="#">Saiba mais<i class="fa fa-question-circle"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- #event -->
+
+    <!--==========================
+      Partners Section
+    ============================-->
+    <section id="partners" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Parceiros</h2>
+          <p>Quem nos ajuda a ser o que somos</p>
+        </div>
+
+        <div class="owl-carousel partners-carousel">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+        </div>
+
+      </div>
+    </section><!-- #partners -->
+{% endblock content %}
