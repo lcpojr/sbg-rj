@@ -21,7 +21,7 @@ class News(models.Model):
     # Content
     image = models.ImageField(
         verbose_name="Imagem",
-        upload_to="media/news/%Y-%m-%d",
+        upload_to="news/%Y-%m-%d",
         validators=[
             FileExtensionValidator(
                 ["png", "jpg", "jpeg"], "Formato de imagem inválido (.png, .jpg, .jpeg)"
@@ -31,7 +31,7 @@ class News(models.Model):
 
     icon = models.ImageField(
         verbose_name="Ícone",
-        upload_to="media/news/%Y-%m-%d",
+        upload_to="news/%Y-%m-%d",
         validators=[
             FileExtensionValidator(
                 ["png", "jpg", "jpeg"], "Formato de imagem inválido (.png, .jpg, .jpeg)"

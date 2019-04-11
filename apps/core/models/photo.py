@@ -16,7 +16,7 @@ class Photo(models.Model):
     # Content
     image = models.ImageField(
         verbose_name="Imagem",
-        upload_to="media/products/%Y-%m-%d/",
+        upload_to="products/%Y-%m-%d/",
         validators=[
             FileExtensionValidator(
                 ["png", "jpg", "jpeg"], "Formato de imagem inválido (.png, .jpg, jpeg)"
