@@ -94,6 +94,7 @@
       </div>
     </section><!-- #membership -->
 
+    {% if news %}
     <!--==========================
       News Section
     ============================-->
@@ -104,52 +105,21 @@
           <p>Os ultimos acontecimentos na area geológica</p>
         </div>
         <div class="owl-carousel news-carousel">
-
-            <div class="news-item">
-              <a href="#">
-                <img src="https://s1.thingpic.com/images/9n/LwDXYNgZmChHGYJnuLaSVMma.jpeg" class="news-img" alt="">
-              </a>
-              <br/>
-              <p>
-                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-              </p>
-            </div>
-
-            <div class="news-item">
-              <a href="#">
-                <img src="https://s1.thingpic.com/images/9n/LwDXYNgZmChHGYJnuLaSVMma.jpeg" class="news-img" alt="">
-              </a>
-              <br/>
-              <p>
-                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-              </p>
-            </div>
-
-            <div class="news-item">
-              <a href="#">
-                <img src="https://s1.thingpic.com/images/9n/LwDXYNgZmChHGYJnuLaSVMma.jpeg" class="news-img" alt="">
-              </a>
-              <br/>
-              <p>
-                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-              </p>
-            </div>
-
-            <div class="news-item">
-              <a href="#">
-                <img src="https://s1.thingpic.com/images/9n/LwDXYNgZmChHGYJnuLaSVMma.jpeg" class="news-img" alt="">
-              </a>
-              <br/>
-              <p>
-                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-              </p>
-            </div>
-
+          {% for item in news %}
+          <div class="news-item">
+            <a href="#">
+              <img src="{{ item.icon.url }}" class="news-img" alt="Imagem da notícia {{ item.title }}" title="{{ item.title }}">
+            </a>
+            <br/>
+            <p>{{ item.resume | safe }}</p>
+          </div>
+          {% endfor %}
         </div>
-
       </div>
     </section><!-- #news -->
+    {% endif %}
 
+    {% if events %}
     <!--==========================
       Events
     ============================-->
@@ -160,69 +130,26 @@
           <p>Próximos eventos no núcleo do Rio de Janeiro</p>
         </div>
         <div class="row">
+          {% for item in events %}
           <div class="col-lg-3 col-md-6">
             <div class="event-data">
               <div class="pic">
-                <img src="https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/22223742/Events-1200x630.jpg" alt="">
+                <img src="{{ item.icon }}" alt="Imagem do evento {{ event.title }}" title="{{ item.title }}">
               </div>
               <div class="details">
-                <h4>SIMPÓSIO DO OURO EM MINAS GERAIS</h4>
-                <span>09 de novembro de 2018</span>
+                <h4>{{ item.title }}</h4>
+                <span>{{ item.starts_at }}</span>
                 <div class="know-more">
                   <a href="#">Saiba mais<i class="fa fa-question-circle"></i></a>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="event-data">
-              <div class="pic">
-                <img src="https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/22223742/Events-1200x630.jpg" alt="">
-              </div>
-              <div class="details">
-                <h4>SIMPÓSIO DO OURO EM MINAS GERAIS</h4>
-                <span>09 de novembro de 2018</span>
-                <div class="know-more">
-                  <a href="#">Saiba mais<i class="fa fa-question-circle"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="event-data">
-              <div class="pic">
-                <img src="https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/22223742/Events-1200x630.jpg" alt="">
-              </div>
-              <div class="details">
-                <h4>SIMPÓSIO DO OURO EM MINAS GERAIS</h4>
-                <span>09 de novembro de 2018</span>
-                <div class="know-more">
-                  <a href="#">Saiba mais<i class="fa fa-question-circle"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="event-data">
-              <div class="pic">
-                <img src="https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/22223742/Events-1200x630.jpg" alt="">
-              </div>
-              <div class="details">
-                <h4>SIMPÓSIO DO OURO EM MINAS GERAIS</h4>
-                <span>09 de novembro de 2018</span>
-                <div class="know-more">
-                  <a href="#">Saiba mais<i class="fa fa-question-circle"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
-
       </div>
     </section><!-- #event -->
+    {% endif %}
 
     <!--==========================
       Partners Section
