@@ -15,7 +15,7 @@ class Publication(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     # Identity
-    name = models.CharField(max_length=50, verbose_name="Nome")
+    name = models.CharField(max_length=100, verbose_name="Nome")
     category = models.CharField(
         max_length=50, null=True, verbose_name="Categoria", choices=PUBLICATION_CHOICES
     )
@@ -23,7 +23,7 @@ class Publication(models.Model):
     # Content
     document = models.FileField(
         verbose_name="Documento",
-        upload_to="media/publications/%Y-%m-%d/",
+        upload_to="publications/%Y-%m-%d/",
         validators=[
             FileExtensionValidator(["pdf"], "Formato de publicação inválido (.pdf)")
         ],

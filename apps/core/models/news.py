@@ -13,7 +13,7 @@ class News(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     # Identity
-    title = models.CharField(max_length=50, verbose_name="Título da Notícia")
+    title = models.CharField(max_length=100, verbose_name="Título da Notícia")
     resume = models.TextField(verbose_name="Resumo da Notícia")
     description = models.TextField(verbose_name="Descrição")
     publish_date = models.DateTimeField(verbose_name="Data da Notícia")
@@ -21,7 +21,7 @@ class News(models.Model):
     # Content
     image = models.ImageField(
         verbose_name="Imagem",
-        upload_to="media/news/%Y-%m-%d",
+        upload_to="news/%Y-%m-%d",
         validators=[
             FileExtensionValidator(
                 ["png", "jpg", "jpeg"], "Formato de imagem inválido (.png, .jpg, .jpeg)"
@@ -31,7 +31,7 @@ class News(models.Model):
 
     icon = models.ImageField(
         verbose_name="Ícone",
-        upload_to="media/news/%Y-%m-%d",
+        upload_to="news/%Y-%m-%d",
         validators=[
             FileExtensionValidator(
                 ["png", "jpg", "jpeg"], "Formato de imagem inválido (.png, .jpg, .jpeg)"

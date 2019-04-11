@@ -13,13 +13,13 @@ class Product(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     # Identity
-    name = models.CharField(max_length=50, verbose_name="Nome")
+    name = models.CharField(max_length=100, verbose_name="Nome")
     description = models.TextField(verbose_name="Descrição")
 
     # Content
     image = models.ImageField(
         verbose_name="Imagem",
-        upload_to="media/products/%Y-%m-%d/",
+        upload_to="products/%Y-%m-%d/",
         validators=[
             FileExtensionValidator(
                 ["png", "jpg", "jpeg"], "Formato de imagem inválido (.png, .jpg, jpeg)"
@@ -29,7 +29,7 @@ class Product(models.Model):
 
     icon = models.ImageField(
         verbose_name="Ícone",
-        upload_to="media/products/%Y-%m-%d/",
+        upload_to="products/%Y-%m-%d/",
         validators=[
             FileExtensionValidator(
                 ["png", "jpg", "jpeg"], "Formato de ícone inválido (.png, .jpg, jpeg)"

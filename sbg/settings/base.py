@@ -143,4 +143,5 @@ FROALA_EDITOR_THEME = "gray"
 # Admin theme
 # https://django-grappelli.readthedocs.io/en/latest/quickstart.html
 
+GRAPPELLI_ADMIN_TITLE = "SBG - RJ (Administração)"
 GRAPPELLI_AUTOCOMPLETE_LIMIT = 30
