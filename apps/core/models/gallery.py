@@ -15,17 +15,15 @@ class Gallery(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     # Identity
-    title = models.CharField(max_length=50, unique=True, verbose_name="Title")
+    title = models.CharField(max_length=100, unique=True, verbose_name="Title")
     description = models.TextField(verbose_name="Descrição")
     category = models.CharField(
         max_length=50, verbose_name="Categoria", blank=True, choices=CATEGORY_CHOICES
     )
 
     # Monitoring
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Data de criação")
-    updated_at = models.DateTimeField(
-        auto_now=True, verbose_name="Ultima atualização")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Data de criação")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Ultima atualização")
 
     # Associations
     created_by = models.ForeignKey(

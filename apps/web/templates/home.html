@@ -59,12 +59,14 @@
           </div>
           <div class="col-lg-6 content">
             <h2>Sobre nós</h2>
-            <h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
-            <ul>
-              <li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="ion-android-checkmark-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-              <li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-            </ul>
+            <h3>
+              A SBG é uma entidade técnico-científica, sem fins lucrativos, fundada em 1946. 
+              Tem sede na Rua do Lago, 562, Cidade Universitária USP, São Paulo, SP, e núcleos regionais com sedes 
+              em Belo Horizonte, Rio de Janeiro, Goiânia, Belém, Recife, Salvador, Brasília, Curitiba, 
+              Porto Alegre e São Paulo.
+              <br/><br/>
+              <a href="#" class="btn-read-more">Ler mais +</a>
+            </h3>
           </div>
         </div>
 
@@ -109,6 +111,10 @@
             </a>
             <br/>
             <p>{{ item.resume | safe }}</p>
+            <div class="details">
+              <h4>{{ item.publish_date|date:"d/m/Y" }}</h4>
+              <a href="#" class="btn-events scrollto">Ler mais +</a>
+            </div>
           </div>
           {% endfor %}
         </div>

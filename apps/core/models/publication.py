@@ -15,7 +15,7 @@ class Publication(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     # Identity
-    name = models.CharField(max_length=50, verbose_name="Nome")
+    name = models.CharField(max_length=100, verbose_name="Nome")
     category = models.CharField(
         max_length=50, null=True, verbose_name="Categoria", choices=PUBLICATION_CHOICES
     )

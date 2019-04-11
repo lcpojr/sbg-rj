@@ -13,7 +13,7 @@ class Event(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     # Identity
-    title = models.CharField(max_length=50, verbose_name="Título")
+    title = models.CharField(max_length=100, verbose_name="Título")
     description = models.TextField(verbose_name="Descrição")
 
     # Content

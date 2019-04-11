@@ -13,7 +13,7 @@ class News(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     # Identity
-    title = models.CharField(max_length=50, verbose_name="Título da Notícia")
+    title = models.CharField(max_length=100, verbose_name="Título da Notícia")
     resume = models.TextField(verbose_name="Resumo da Notícia")
     description = models.TextField(verbose_name="Descrição")
     publish_date = models.DateTimeField(verbose_name="Data da Notícia")
