@@ -44,7 +44,7 @@ class CustomDirectorAdmin(admin.ModelAdmin):
         (
             "Monitoramento",
             {
-                "classes": ("grp-collapse grp-closed",),
+                "classes": ("grp-collapse grp-open",),
                 "fields": ("created_at", "updated_at", "created_by", "updated_by"),
             },
         ),
