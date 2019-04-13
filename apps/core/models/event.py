@@ -17,8 +17,8 @@ class Event(models.Model):
     description = models.TextField(verbose_name="Descrição")
     slideshow = models.BooleanField(
         default=False,
-        verbose_name="Aparece no Slideshow?",
-        help_text="Selecione essa opção se deseja que o evento apareça na HomePage."
+        verbose_name="Slideshow",
+        help_text="Selecione essa opção se deseja que o evento apareça na HomePage.",
     )
 
     # Content

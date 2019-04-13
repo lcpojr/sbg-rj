@@ -20,7 +20,11 @@ class CustomEventAdmin(admin.ModelAdmin):
     fieldsets = (
         (
             "Informações básicas",
-            {"classes": ("grp-collapse grp-open",), "fields": ("title", "description","slideshow")},
+            {"classes": ("grp-collapse grp-open",), "fields": ("title", "description")},
+        ),
+        (
+            "Página inícial",
+            {"classes": ("grp-collapse grp-open",), "fields": ("slideshow",)},
         ),
         (
             "Periodo de atividade",
