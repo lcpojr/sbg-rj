@@ -23,6 +23,10 @@ class CustomEventAdmin(admin.ModelAdmin):
             {"classes": ("grp-collapse grp-open",), "fields": ("title", "description")},
         ),
         (
+            "Página inícial",
+            {"classes": ("grp-collapse grp-open",), "fields": ("slideshow",)},
+        ),
+        (
             "Periodo de atividade",
             {"classes": ("grp-collapse grp-open",), "fields": ("starts_at", "ends_at")},
         ),
@@ -36,7 +40,7 @@ class CustomEventAdmin(admin.ModelAdmin):
         (
             "Monitoramento",
             {
-                "classes": ("grp-collapse grp-closed",),
+                "classes": ("grp-collapse grp-open",),
                 "fields": ("created_at", "updated_at", "created_by", "updated_by"),
             },
         ),

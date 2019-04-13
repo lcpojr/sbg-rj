@@ -15,6 +15,11 @@ class Event(models.Model):
     # Identity
     title = models.CharField(max_length=100, verbose_name="Título")
     description = models.TextField(verbose_name="Descrição")
+    slideshow = models.BooleanField(
+        default=False,
+        verbose_name="Slideshow",
+        help_text="Selecione essa opção se deseja que o evento apareça na HomePage.",
+    )
 
     # Content
     image = models.ImageField(
