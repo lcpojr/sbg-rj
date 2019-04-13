@@ -1,5 +1,6 @@
 import uuid
 
+from django.utils.text import slugify
 from django.core.validators import FileExtensionValidator
 from django.db import models
 from .user import User
@@ -15,6 +16,14 @@ class Event(models.Model):
     # Identity
     title = models.CharField(max_length=100, verbose_name="Título")
     description = models.TextField(verbose_name="Descrição")
+
+    slug = models.SlugField(
+        max_length=500,
+        unique=True,
+        verbose_name="Slogan da página",
+        help_text="Utilizado para que o link da página fique torne-se fácil de ler por um humano",
+    )
+
     slideshow = models.BooleanField(
         default=False,
         verbose_name="Slideshow",
@@ -88,3 +97,7 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Event, self).save(*args, **kwargs)
