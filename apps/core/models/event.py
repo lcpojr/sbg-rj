@@ -21,7 +21,7 @@ class Event(models.Model):
         max_length=500,
         unique=True,
         verbose_name="Slogan da página",
-        help_text="Utilizado para que o link da página fique torne-se fácil de ler por um humano",
+        help_text="Utilizado para que o link da página torne-se fácil de ler por um humano",
     )
 
     slideshow = models.BooleanField(
