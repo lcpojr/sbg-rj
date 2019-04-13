@@ -1,5 +1,6 @@
 import uuid
 
+from django.utils.text import slugify
 from django.core.validators import FileExtensionValidator
 from django.db import models
 from .user import User
@@ -17,6 +18,13 @@ class News(models.Model):
     resume = models.TextField(verbose_name="Resumo da Notícia")
     description = models.TextField(verbose_name="Descrição")
     publish_date = models.DateTimeField(verbose_name="Data da Notícia")
+
+    slug = models.SlugField(
+        max_length=500,
+        unique=True,
+        verbose_name="Slogan da página",
+        help_text="Utilizado para que o link da página torne-se fácil de ler por um humano",
+    )
 
     # Content
     image = models.ImageField(
@@ -70,3 +78,7 @@ class News(models.Model):
 
     def __str__(self):
         return "{} ()".format(self.title, self.resume)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(News, self).save(*args, **kwargs)
