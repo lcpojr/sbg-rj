@@ -7,12 +7,13 @@
 ============================-->
 <nav id="nav-menu-container">
     <ul class="nav-menu">
-        <li class="menu-active"><a href="#body">Home</a></li>
-        <li class="menu-has-children"><a href="">SBG-RJ</a>
+        <li class="menu-active"><a href="{% url 'web:home' %}">Home</a></li>
+        <li class="menu-has-children">
+            <a href="#">SBG-RJ</a>
             <ul>
                 <li><a href="#">Sobre</a></li>
-                <li><a href="#">Eventos</a></li>
-                <li><a href="#">Notícias</a></li>
+                <li><a href="{% url 'web:events' %}">Eventos</a></li>
+                <li><a href="{% url 'web:news' %}">Notícias</a></li>
                 <li><a href="#">Produtos</a></li>
             </ul>
         </li>
@@ -33,8 +34,8 @@
         <h2>SOCIEDADE BRASILEIRA DE GEOLOGIA – NÚCLEO MINAS GERAIS</h2>
         <h5>“DIFUNDINDO O CONHECIMENTO E O DESENVOLVIMENTO DAS GEOCIÊNCIAS”</h5>
         <div>
-            <a href="#" class="btn-events scrollto">Eventos</a>
-            <a href="#" class="btn-news scrollto">Notícias</a>
+            <a href="{% url 'web:events' %}" class="btn-events scrollto">Eventos</a>
+            <a href="{% url 'web:news' %}" class="btn-news scrollto">Notícias</a>
         </div>
     </div>
     <div id="intro-carousel" class="owl-carousel" >
@@ -106,14 +107,14 @@
         <div class="owl-carousel news-carousel">
           {% for item in news %}
           <div class="news-item">
-            <a href="#">
+            <a href="{% url 'web:news-show' item.slug %}">
               <img src="{{ item.icon.url }}" class="news-img" alt="Imagem da notícia {{ item.title }}" title="{{ item.title }}">
             </a>
             <br/>
             <p>{{ item.resume | safe }}</p>
             <div class="details">
               <h4>{{ item.publish_date|date:"d/m/Y" }}</h4>
-              <a href="#" class="btn-events scrollto">Ler mais +</a>
+              <a href="{% url 'web:news-show' item.slug %}" class="btn-events scrollto">Ler mais +</a>
             </div>
           </div>
           {% endfor %}
@@ -137,15 +138,15 @@
           <div class="col-lg-3 col-md-6">
             <div class="event-data">
               <div class="pic">
-                <a href="#">
-                  <img src="{{ item.icon.url }}" alt="Imagem do evento {{ event.title }}" title="{{ item.title }}">
+                <a href="{% url 'web:events-show' item.slug %}">
+                  <img src="{{ item.icon.url }}" alt="Imagem do evento {{ item.title }}" title="{{ item.title }}">
                 </a>
               </div>
               <div class="details">
                 <h4>{{ item.title }}</h4>
                 <span>{{ item.starts_at }}</span>
                 <div class="know-more">
-                  <a href="#">Saiba mais<i class="fa fa-question-circle"></i></a>
+                  <a href="{% url 'web:events-show' item.slug %}">Saiba mais +<i class="fa fa-question-circle"></i></a>
                 </div>
               </div>
             </div>

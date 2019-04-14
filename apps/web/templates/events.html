@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block menu %}
+<!--==========================
+    Menu
+============================-->
+<nav id="nav-menu-container">
+    <ul class="nav-menu">
+        <li><a href="{% url 'web:home' %}">Home</a></li>
+        <li class="menu-has-children menu-active">
+            <a href="#">SBG-RJ</a>
+            <ul>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="{% url 'web:events' %}">Eventos</a></li>
+                <li><a href="{% url 'web:news' %}">Notícias</a></li>
+                <li><a href="#">Produtos</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Publicações</a></li>
+        <li><a href="#">Galeria</a></li>
+        <li><a href="#">Regionais</a></li>
+        <li><a href="#">Contato</a></li>
+    </ul>
+</nav><!-- #nav-menu-container -->
+{% endblock menu %}
+
+{% block content %}
+    <!--==========================
+      Events
+    ============================-->
+    <section id="events" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Eventos</h2>
+          <p>Próximos eventos no núcleo do Rio de Janeiro</p>
+        </div>
+        {% if events %}
+        <div class="row">
+            {% for item in events %}
+            <div class="col-lg-3 col-md-6">
+                <div class="event-data">
+                    <div class="pic">
+                        <a href="{% url 'web:events-show' item.slug %}">
+                            <img src="{{ item.icon.url }}" alt="Imagem do evento {{ item.title }}" title="{{ item.title }}">
+                        </a>
+                    </div>
+                    <div class="details">
+                        <h4>{{ item.title }}</h4>
+                        <span>{{ item.starts_at }}</span>
+                        <div class="know-more">
+                            <a href="{% url 'web:events-show' item.slug %}">Saiba mais<i class="fa fa-question-circle"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col-lg-12 col-md-6">
+                <div class="event-data">
+                    <div class="details">
+                        <h4>Desculpe, não temos nenhum evento disponível no momento!</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+      </div>
+    </section><!-- #event -->
+{% endblock content %}
