@@ -14,13 +14,13 @@
                 <li><a href="#">Sobre</a></li>
                 <li><a href="{% url 'web:events' %}">Eventos</a></li>
                 <li><a href="{% url 'web:news' %}">Notícias</a></li>
-                <li><a href="#">Produtos</a></li>
+                <li><a href="{% url 'web:products' %}">Produtos</a></li>
             </ul>
         </li>
         <li><a href="#">Publicações</a></li>
         <li><a href="#">Galeria</a></li>
         <li><a href="#">Regionais</a></li>
-        <li><a href="#">Contato</a></li>
+        <li><a href="{% url 'web:contact' %}">Contato</a></li>
     </ul>
 </nav><!-- #nav-menu-container -->
 {% endblock menu %}
