@@ -3,6 +3,9 @@ from django.views.generic import View
 
 from apps.core.models.event import Event as EventModel
 from apps.core.models.news import News as NewsModel
+from apps.core.models.product import Product as ProductModel
+
+from .forms import ContactCreateForm, OrderCreateForm
 
 
 class Home(View):
@@ -50,3 +53,89 @@ class News(View):
         else:
             news = NewsModel.objects.all().order_by("publish_date")
             return render(request, "news.html", {"news": news})
+
+
+class Products(View):
+    """
+    Its the Products view.
+    It should contain show the list of products and the details of it.
+    It will also send a email notification.
+    """
+
+    def get(self, request, slug=None):
+        form = OrderCreateForm()
+
+        if slug:
+            product = ProductModel.objects.get(slug=slug)
+            context = {"form": form, "product": product, "message": None}
+            return render(request, "products-show.html", context)
+        else:
+            products = ProductModel.objects.all().order_by("created_at")
+            context = {"form": form, "products": products, "message": None}
+            return render(request, "products.html", context)
+
+    def post(self, request, slug=None):
+        form = OrderCreateForm(request.POST)
+
+        if form.is_valid():
+            message = True
+
+            """
+            send_mail(
+                "Você recebeu um novo pedido pelo seu WEBSITE",
+                "Cliente: {} \n Telefone: {} \n Email: {} \n {}".format(
+                    contact["nome"],
+                    contact["telefone"],
+                    contact["email"],
+                    contact["descricao"],
+                ),
+                settings.DEFAULT_FROM_EMAIL,
+                settings.CONTACT_EMAILS,
+            )
+            """
+        else:
+            message = False
+
+        if slug:
+            product = ProductModel.objects.get(slug=slug)
+            context = {"form": form, "product": product, "message": message}
+            return render(request, "products-show.html", context)
+        else:
+            products = ProductModel.objects.all().order_by("created_at")
+            context = {"form": form, "products": products, "message": message}
+            return render(request, "products.html", context)
+
+
+class Contact(View):
+    """
+    Its the Contact view.
+    It should contain all contact information and send email functions.
+    """
+
+    def get(self, request):
+        form = ContactCreateForm()
+        return render(request, "contact.html", {"form": form})
+
+    def post(self, request):
+        form = ContactCreateForm(request.POST)
+
+        if form.is_valid():
+            message = True
+
+            """
+            send_mail(
+                "Uma pessoa entrou em contato pelo seu WEBSITE",
+                "Cliente: {} \n Telefone: {} \n Email: {} \n {}".format(
+                    contact["nome"],
+                    contact["telefone"],
+                    contact["email"],
+                    contact["descricao"],
+                ),
+                settings.DEFAULT_FROM_EMAIL,
+                settings.CONTACT_EMAILS,
+            )
+            """
+        else:
+            message = False
+
+        return render(request, "contact.html", {"form": form, "message": message})

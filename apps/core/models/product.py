@@ -1,5 +1,6 @@
 import uuid
 
+from django.utils.text import slugify
 from django.core.validators import FileExtensionValidator
 from django.db import models
 from .user import User
@@ -15,6 +16,13 @@ class Product(models.Model):
     # Identity
     name = models.CharField(max_length=100, verbose_name="Nome")
     description = models.TextField(verbose_name="Descrição")
+
+    slug = models.SlugField(
+        max_length=500,
+        unique=True,
+        verbose_name="Slogan da página",
+        help_text="Utilizado para que o link da página torne-se fácil de ler por um humano",
+    )
 
     # Content
     image = models.ImageField(
@@ -77,3 +85,7 @@ class Product(models.Model):
 
     def __str__(self):
         return "{} - R$ {}".format(self.name, self.price_non_associated)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Product, self).save(*args, **kwargs)
