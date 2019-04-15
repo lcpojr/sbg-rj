@@ -1381,3 +1381,29 @@ body.mobile-nav-active #mobile-nav-toggle {
   width: 100px;
   height: 100px;
 }
+
+
+/* Our Mission Section
+--------------------------------*/
+
+.mission-list   {
+  background-color: #f2f5f8;
+  padding: 5%;
+}
+
+.mission-list p {
+  font-weight: bold;
+}
+
+  .mission-list ul.mission-bullets li:before {
+    content: '\f138';
+    font-family: 'FontAwesome';
+    float: left;
+    margin-left: -1.3em;
+    color: #0074D9;
+  }
+
+  #intro .intro-content .about-quote {
+    font-weight: bold;
+    color: #454545;
+  }
