@@ -52,4 +52,4 @@ class Director(models.Model):
         verbose_name_plural = "Diretores"
 
     def __str__(self):
-        return "{} ()".format(self.first_name, self.email)
+        return "{} {}".format(self.first_name, self.email)
