@@ -1,11 +1,17 @@
+from datetime import datetime
+
 from django.shortcuts import render
 from django.views.generic import View
 
 from apps.core.models.event import Event as EventModel
 from apps.core.models.news import News as NewsModel
 from apps.core.models.product import Product as ProductModel
+<<<<<<< HEAD
 from apps.core.models.gallery import Gallery as GalleryModel
 from apps.core.models.photo import Photo as PhotoModel
+=======
+from apps.core.models.director import Director as DirectorModel
+>>>>>>> feat: add about-page template and conifgures urls and view
 
 from .forms import ContactCreateForm, OrderCreateForm
 
@@ -160,3 +166,19 @@ class Gallery(View):
         else:
             galleries = GalleryModel.objects.all().order_by("created_at")
             return render(request, "gallery.html", {"galleries": galleries})
+
+
+class About(View):
+    """
+    Its the Home Page view.
+    It should contain the last events and news to be render on website.
+    """
+
+    def get(self, request):
+        # Getting objects
+        directors = DirectorModel.objects.all().order_by("started_at")
+
+        # Creating context
+        context = {"directors": directors}
+
+        return render(request, "about.html", context)
