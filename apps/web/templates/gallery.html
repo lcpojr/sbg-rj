@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block menu %}
+<!--==========================
+    Menu
+============================-->
+<nav id="nav-menu-container">
+    <ul class="nav-menu">
+        <li><a href="{% url 'web:home' %}">Home</a></li>
+        <li class="menu-has-children menu-active">
+            <a href="#">SBG-RJ</a>
+            <ul>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="{% url 'web:events' %}">Eventos</a></li>
+                <li><a href="{% url 'web:news' %}">Notícias</a></li>
+                <li><a href="{% url 'web:products' %}">Produtos</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Publicações</a></li>
+        <li><a href="{% url 'web:gallery' %}">Galeria</a></li>
+        <li><a href="#">Regionais</a></li>
+        <li><a href="{% url 'web:contact' %}">Contato</a></li>
+    </ul>
+</nav><!-- #nav-menu-container -->
+{% endblock menu %}
+
+{% block content %}
+<!--==========================
+    Our Gallery Section
+============================-->
+<section id="gallery" class="wow fadeInUp">
+    <div class="container">
+        <div class="section-header">
+            <h2>Galeria</h2>
+            <p>Conheça um pouco de nossa história.</p>
+        </div>
+    </div>
+    <div class="container-fluid">
+        {% if galleries %}
+        <div class="row no-gutters">
+            {% for item in galleries %}
+            <div class="col-lg-3 col-md-4">
+                <div class="gallery-item wow fadeInUp">
+                    <a href="{% url 'web:gallery-show' item.slug %}">
+                        <img src="{{ item.image.url }}" alt="Imagem de capa do album {{ item.title }} " title="{{ item.title }}">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h2 class="wow fadeInUp">{{ item.title }}</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="row no-gutters">
+            <div class="col-lg-12 col-md-6">
+                <div class="gallery-item">
+                    <h4>Desculpe, não temos nenhuma galeria disponível no momento.</h4>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section><!-- #gallery -->
+{% endblock content %}

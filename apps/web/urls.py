@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import Contact, Events, Home, News, Products
+from .views import Contact, Events, Gallery, Home, News, Products
 
 app_name = "web"
 
@@ -17,4 +17,7 @@ urlpatterns = [
     path("produtos/<slug:slug>/", Products.as_view(), name="products-show"),
     # Contact uris
     path("fale-conosco", Contact.as_view(), name="contact"),
+    # Gallery uris
+    path("galeria", Gallery.as_view(), name="gallery"),
+    path("galeria/<slug:slug>/", Gallery.as_view(), name="gallery-show"),
 ]

@@ -1,5 +1,6 @@
 import uuid
 
+from django.utils.text import slugify
 from django.core.validators import FileExtensionValidator
 from django.db import models
 from .user import User
@@ -19,6 +20,24 @@ class Gallery(models.Model):
     description = models.TextField(verbose_name="Descrição")
     category = models.CharField(
         max_length=50, verbose_name="Categoria", blank=True, choices=CATEGORY_CHOICES
+    )
+
+    slug = models.SlugField(
+        max_length=500,
+        unique=True,
+        verbose_name="Slogan da página",
+        help_text="Utilizado para que o link da página torne-se fácil de ler por um humano",
+    )
+
+    # Content
+    image = models.ImageField(
+        verbose_name="Imagem",
+        upload_to="gallery/%Y-%m-%d",
+        validators=[
+            FileExtensionValidator(
+                ["png", "jpg", "jpeg"], "Formato de imagem inválido (.png, .jpg, .jpeg)"
+            )
+        ],
     )
 
     # Monitoring
@@ -52,3 +71,7 @@ class Gallery(models.Model):
 
     def __str__(self):
         return "{} ({})".format(self.title, self.category)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Gallery, self).save(*args, **kwargs)

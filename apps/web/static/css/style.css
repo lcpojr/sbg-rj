@@ -690,15 +690,15 @@ body.mobile-nav-active #mobile-nav-toggle {
   background-color: #50d8af;
 }
 
-/* Our Portfolio Section
+/* Our Gallery Section
 --------------------------------*/
 
-#portfolio {
+#gallery {
   background: #fff;
   padding: 30px 0;
 }
 
-#portfolio .portfolio-overlay {
+#gallery .gallery-overlay {
   position: absolute;
   top: 0;
   right: 0;
@@ -710,15 +710,16 @@ body.mobile-nav-active #mobile-nav-toggle {
   transition: all ease-in-out 0.4s;
 }
 
-#portfolio .portfolio-item {
+#gallery .gallery-item {
   overflow: hidden;
   position: relative;
   padding: 0;
   vertical-align: middle;
   text-align: center;
+  margin: 3px;
 }
 
-#portfolio .portfolio-item h2 {
+#gallery .gallery-item h2 {
   color: #ffffff;
   font-size: 24px;
   margin: 0;
@@ -726,22 +727,23 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-weight: 700;
 }
 
-#portfolio .portfolio-item img {
+#gallery .gallery-item img {
   transition: all ease-in-out 0.4s;
   width: 100%;
+  height: 250px;
 }
 
-#portfolio .portfolio-item:hover img {
+#gallery .gallery-item:hover img {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
-#portfolio .portfolio-item:hover .portfolio-overlay {
+#gallery .gallery-item:hover .gallery-overlay {
   opacity: 1;
   background: rgba(0, 0, 0, 0.7);
 }
 
-#portfolio .portfolio-info {
+#gallery .gallery-info {
   position: absolute;
   top: 50%;
   left: 50%;
