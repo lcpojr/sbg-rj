@@ -11,7 +11,7 @@
         <li class="menu-has-children">
             <a href="#">SBG-RJ</a>
             <ul>
-                <li><a href="#">Sobre</a></li>
+                <li><a href="{% url 'web:about' %}">Sobre</a></li>
                 <li><a href="{% url 'web:events' %}">Eventos</a></li>
                 <li><a href="{% url 'web:news' %}">Notícias</a></li>
                 <li><a href="{% url 'web:products' %}">Produtos</a></li>
@@ -30,165 +30,168 @@
     Intro Section
 ============================-->
 <section id="intro">
-    <div class="intro-content">
-        <h2>SOCIEDADE BRASILEIRA DE GEOLOGIA – NÚCLEO MINAS GERAIS</h2>
-        <h5>“DIFUNDINDO O CONHECIMENTO E O DESENVOLVIMENTO DAS GEOCIÊNCIAS”</h5>
-        <div>
-            <a href="{% url 'web:events' %}" class="btn-events scrollto">Eventos</a>
-            <a href="{% url 'web:news' %}" class="btn-news scrollto">Notícias</a>
-        </div>
+  <div class="intro-content">
+    <h2>SOCIEDADE BRASILEIRA DE GEOLOGIA – NÚCLEO MINAS GERAIS</h2>
+    <h5>“DIFUNDINDO O CONHECIMENTO E O DESENVOLVIMENTO DAS GEOCIÊNCIAS”</h5>
+    <div>
+      <a href="{% url 'web:events' %}" class="btn-events scrollto">Eventos</a>
+      <a href="{% url 'web:news' %}" class="btn-news scrollto">Notícias</a>
     </div>
-    <div id="intro-carousel" class="owl-carousel" >
-        <div class="item" style="background-image: url({% static 'img/intro-carousel/1.jpg' %});"></div>
-        <div class="item" style="background-image: url({% static 'img/intro-carousel/2.jpg' %});"></div>
-        <div class="item" style="background-image: url({% static 'img/intro-carousel/3.jpg' %});"></div>
-        <div class="item" style="background-image: url({% static 'img/intro-carousel/4.jpg' %});"></div>
-        <div class="item" style="background-image: url({% static 'img/intro-carousel/5.jpg' %});"></div>
-    </div>
+  </div>
+  <div id="intro-carousel" class="owl-carousel">
+    <div class="item" style="background-image: url({% static 'img/intro-carousel/1.jpg' %});"></div>
+    <div class="item" style="background-image: url({% static 'img/intro-carousel/2.jpg' %});"></div>
+    <div class="item" style="background-image: url({% static 'img/intro-carousel/3.jpg' %});"></div>
+    <div class="item" style="background-image: url({% static 'img/intro-carousel/4.jpg' %});"></div>
+    <div class="item" style="background-image: url({% static 'img/intro-carousel/5.jpg' %});"></div>
+  </div>
 </section><!-- #intro -->
 {% endblock  %}
 
 {% block content %}
-    <!--==========================
+<!--==========================
       About Section
     ============================-->
-    <section id="about" class="wow fadeInUp">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 about-img">
-            <img src="{% static 'img/about.jpg' %}" alt="Logotipo 70 anos de Sociedade brasileira de Geologia" title="70 anos de Sociedade brasileira de Geologia">
-          </div>
-          <div class="col-lg-6 content">
-            <h2>Sobre nós</h2>
-            <h3>
-              A SBG é uma entidade técnico-científica, sem fins lucrativos, fundada em 1946. 
-              Tem sede na Rua do Lago, 562, Cidade Universitária USP, São Paulo, SP, e núcleos regionais com sedes 
-              em Belo Horizonte, Rio de Janeiro, Goiânia, Belém, Recife, Salvador, Brasília, Curitiba, 
-              Porto Alegre e São Paulo.
-              <br/><br/>
-              <a href="#" class="btn-read-more">Ler mais +</a>
-            </h3>
-          </div>
-        </div>
-
+<section id="about" class="wow fadeInUp">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 about-img">
+        <img src="{% static 'img/about.jpg' %}" alt="Logotipo 70 anos de Sociedade brasileira de Geologia"
+          title="70 anos de Sociedade brasileira de Geologia">
       </div>
-    </section><!-- #about -->
+      <div class="col-lg-6 content">
+        <h2>Sobre nós</h2>
+        <h3>
+          A SBG é uma entidade técnico-científica, sem fins lucrativos, fundada em 1946.
+          Tem sede na Rua do Lago, 562, Cidade Universitária USP, São Paulo, SP, e núcleos regionais com sedes
+          em Belo Horizonte, Rio de Janeiro, Goiânia, Belém, Recife, Salvador, Brasília, Curitiba,
+          Porto Alegre e São Paulo.
+          <br /><br />
+          <a href="#" class="btn-read-more">Ler mais +</a>
+        </h3>
+      </div>
+    </div>
 
-    <!--==========================
+  </div>
+</section><!-- #about -->
+
+<!--==========================
       Membership
     ============================-->
-    <section id="membership" class="wow fadeInUp">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-9 text-center text-lg-left">
-            <h3 class="cta-title">Torne-se membro</h3>
-            <p class="cta-text"> 
-              Faça parte de uma associação científica com mais de 70 anos de história e prestígio internacional
-            </p>
-          </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="http://www.sbgeo.org.br/">Inscreva-se</a>
-          </div>
-        </div>
-
+<section id="membership" class="wow fadeInUp">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 text-center text-lg-left">
+        <h3 class="cta-title">Torne-se membro</h3>
+        <p class="cta-text">
+          Faça parte de uma associação científica com mais de 70 anos de história e prestígio internacional
+        </p>
       </div>
-    </section><!-- #membership -->
+      <div class="col-lg-3 cta-btn-container text-center">
+        <a class="cta-btn align-middle" href="http://www.sbgeo.org.br/">Inscreva-se</a>
+      </div>
+    </div>
 
-    {% if news %}
-    <!--==========================
+  </div>
+</section><!-- #membership -->
+
+{% if news %}
+<!--==========================
       News Section
     ============================-->
-    <section id="news" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Notícias</h2>
-          <p>Os ultimos acontecimentos na area geológica</p>
-        </div>
-        <div class="owl-carousel news-carousel">
-          {% for item in news %}
-          <div class="news-item">
-            <a href="{% url 'web:news-show' item.slug %}">
-              <img src="{{ item.icon.url }}" class="news-img" alt="Imagem da notícia {{ item.title }}" title="{{ item.title }}">
-            </a>
-            <br/>
-            <p>{{ item.resume | safe }}</p>
-            <div class="details">
-              <h4>{{ item.publish_date|date:"d/m/Y" }}</h4>
-              <a href="{% url 'web:news-show' item.slug %}" class="btn-events scrollto">Ler mais +</a>
-            </div>
-          </div>
-          {% endfor %}
+<section id="news" class="wow fadeInUp">
+  <div class="container">
+    <div class="section-header">
+      <h2>Notícias</h2>
+      <p>Os ultimos acontecimentos na area geológica</p>
+    </div>
+    <div class="owl-carousel news-carousel">
+      {% for item in news %}
+      <div class="news-item">
+        <a href="{% url 'web:news-show' item.slug %}">
+          <img src="{{ item.icon.url }}" class="news-img" alt="Imagem da notícia {{ item.title }}"
+            title="{{ item.title }}">
+        </a>
+        <br />
+        <p>{{ item.resume | safe }}</p>
+        <div class="details">
+          <h4>{{ item.publish_date|date:"d/m/Y" }}</h4>
+          <a href="{% url 'web:news-show' item.slug %}" class="btn-events scrollto">Ler mais +</a>
         </div>
       </div>
-    </section><!-- #news -->
-    {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section><!-- #news -->
+{% endif %}
 
-    {% if events %}
-    <!--==========================
+{% if events %}
+<!--==========================
       Events
     ============================-->
-    <section id="events" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Eventos</h2>
-          <p>Próximos eventos no núcleo do Rio de Janeiro</p>
-        </div>
-        <div class="row">
-          {% for item in events %}
-          <div class="col-lg-3 col-md-6">
-            <div class="event-data">
-              <div class="pic">
-                <a href="{% url 'web:events-show' item.slug %}">
-                  <img src="{{ item.icon.url }}" alt="Imagem do evento {{ item.title }}" title="{{ item.title }}">
-                </a>
-              </div>
-              <div class="details">
-                <h4>{{ item.title }}</h4>
-                <span>{{ item.starts_at }}</span>
-                <div class="know-more">
-                  <a href="{% url 'web:events-show' item.slug %}">Saiba mais +<i class="fa fa-question-circle"></i></a>
-                </div>
-              </div>
+<section id="events" class="wow fadeInUp">
+  <div class="container">
+    <div class="section-header">
+      <h2>Eventos</h2>
+      <p>Próximos eventos no núcleo do Rio de Janeiro</p>
+    </div>
+    <div class="row">
+      {% for item in events %}
+      <div class="col-lg-3 col-md-6">
+        <div class="event-data">
+          <div class="pic">
+            <a href="{% url 'web:events-show' item.slug %}">
+              <img src="{{ item.icon.url }}" alt="Imagem do evento {{ item.title }}" title="{{ item.title }}">
+            </a>
+          </div>
+          <div class="details">
+            <h4>{{ item.title }}</h4>
+            <span>{{ item.starts_at }}</span>
+            <div class="know-more">
+              <a href="{% url 'web:events-show' item.slug %}">Saiba mais +<i class="fa fa-question-circle"></i></a>
             </div>
           </div>
-          {% endfor %}
         </div>
       </div>
-    </section><!-- #event -->
-    {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section><!-- #event -->
+{% endif %}
 
-    <!--==========================
+<!--==========================
       Partners Section
     ============================-->
-    <section id="partners" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Parceiros</h2>
-          <p>Quem nos ajuda a ser o que somos</p>
-        </div>
-        <div class="owl-carousel partners-carousel">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
-        </div>
-      </div>
-    </section><!-- #partners -->
+<section id="partners" class="wow fadeInUp">
+  <div class="container">
+    <div class="section-header">
+      <h2>Parceiros</h2>
+      <p>Quem nos ajuda a ser o que somos</p>
+    </div>
+    <div class="owl-carousel partners-carousel">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_petrobras.gif" alt="">
+    </div>
+  </div>
+</section><!-- #partners -->
 
-    <!--==========================
+<!--==========================
       Promotion Section
     ============================-->
-    <section id="promotion" class="wow fadeInUp">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <a href="http://www.sbgeo.org.br/"><img src="{% static 'img/membership.png' %}" alt="Imagem de propaganda, torne-se membro" title="Torne-se membro e ganhe descontos"/></a>
-          </div>
-        </div>
+<section id="promotion" class="wow fadeInUp">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <a href="http://www.sbgeo.org.br/"><img src="{% static 'img/membership.png' %}"
+            alt="Imagem de propaganda, torne-se membro" title="Torne-se membro e ganhe descontos" /></a>
       </div>
-    </section><!-- #promotion -->
+    </div>
+  </div>
+</section><!-- #promotion -->
 {% endblock content %}

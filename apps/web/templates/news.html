@@ -26,14 +26,14 @@
 {% endblock menu %}
 
 {% block content %}
-    <!--==========================
+<!--==========================
       News List
     ============================-->
-    <section id="news-list" class="wow fadeInUp">
-      <div class="container">
+<section id="news-list" class="wow fadeInUp">
+    <div class="container">
         <div class="section-header">
-          <h2>Notícias</h2>
-          <p>Os ultimos acontecimentos na area geológica</p>
+            <h2>Notícias</h2>
+            <p>Os ultimos acontecimentos na area geológica</p>
         </div>
         {% if news %}
         <div class="row">
@@ -42,14 +42,16 @@
                 <div class="news-data">
                     <div class="pic">
                         <a href="{% url 'web:news-show' item.slug %}">
-                            <img src="{{ item.icon.url }}" alt="Imagem da notícia {{ item.title }}" title="{{ item.title }}">
+                            <img src="{{ item.icon.url }}" alt="Imagem da notícia {{ item.title }}"
+                                title="{{ item.title }}">
                         </a>
                     </div>
                     <div class="details">
                         <h4>{{ item.title }}</h4>
                         <span>{{ item.publish_date }}</span>
                         <div class="know-more">
-                            <a href="{% url 'web:news-show' item.slug %}">Saiba mais<i class="fa fa-question-circle"></i></a>
+                            <a href="{% url 'web:news-show' item.slug %}">Saiba mais<i
+                                    class="fa fa-question-circle"></i></a>
                         </div>
                     </div>
                 </div>
@@ -67,6 +69,6 @@
             </div>
         </div>
         {% endif %}
-      </div>
-    </section><!-- #news -->
+    </div>
+</section><!-- #news -->
 {% endblock content %}
