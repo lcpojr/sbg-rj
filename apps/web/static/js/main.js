@@ -116,8 +116,8 @@ jQuery(document).ready(function ($) {
   });
 
 
-  // Porfolio - uses the magnific popup jQuery plugin
-  $('.portfolio-popup').magnificPopup({
+  // Gallery - uses the magnific popup jQuery plugin
+  $('.gallery-popup').magnificPopup({
     type: 'image',
     removalDelay: 300,
     mainClass: 'mfp-fade',

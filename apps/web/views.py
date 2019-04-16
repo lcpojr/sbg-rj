@@ -4,6 +4,8 @@ from django.views.generic import View
 from apps.core.models.event import Event as EventModel
 from apps.core.models.news import News as NewsModel
 from apps.core.models.product import Product as ProductModel
+from apps.core.models.gallery import Gallery as GalleryModel
+from apps.core.models.photo import Photo as PhotoModel
 
 from .forms import ContactCreateForm, OrderCreateForm
 
@@ -139,3 +141,22 @@ class Contact(View):
             message = False
 
         return render(request, "contact.html", {"form": form, "message": message})
+
+
+class Gallery(View):
+    """
+    Its the Gallery view.
+    It should contain all photos organized in albums.
+    """
+
+    def get(self, request, slug=None):
+        if slug:
+            gallery = GalleryModel.objects.get(slug=slug)
+            photos = PhotoModel.objects.filter(gallery=gallery)
+
+            context = {"gallery": gallery, "photos": photos}
+
+            return render(request, "gallery-show.html", context)
+        else:
+            galleries = GalleryModel.objects.all().order_by("created_at")
+            return render(request, "gallery.html", {"galleries": galleries})
