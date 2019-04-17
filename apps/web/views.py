@@ -6,12 +6,9 @@ from django.views.generic import View
 from apps.core.models.event import Event as EventModel
 from apps.core.models.news import News as NewsModel
 from apps.core.models.product import Product as ProductModel
-<<<<<<< HEAD
 from apps.core.models.gallery import Gallery as GalleryModel
 from apps.core.models.photo import Photo as PhotoModel
-=======
 from apps.core.models.director import Director as DirectorModel
->>>>>>> feat: add about-page template and conifgures urls and view
 
 from .forms import ContactCreateForm, OrderCreateForm
 
@@ -168,17 +165,44 @@ class Gallery(View):
             return render(request, "gallery.html", {"galleries": galleries})
 
 
+def group_directors(directors):
+    """
+    This function will group all directors by year
+    It will be used inside the about View
+    """
+    history = []
+    for director in directors:
+        if history == []:
+            history.append({"year": director.started_at.year, "directors": [director]})
+            check = False
+
+        for value in history:
+            if value['year'] == director.started_at.year:
+                value['directors'].append(director)
+                check = True
+            else:
+                check = False
+
+        if not check:
+            history.append({"year": director.started_at.year, "directors": [director]})
+    
+    return history
+
+
+
 class About(View):
     """
-    Its the Home Page view.
-    It should contain the last events and news to be render on website.
-    """
+    Its the About Page view.
+    It should contain all the directors to be rendered in the website.
+    """    
 
     def get(self, request):
         # Getting objects
-        directors = DirectorModel.objects.all().order_by("started_at")
+        directors = DirectorModel.objects.all().order_by("-started_at")
+        directors_history = group_directors(directors)
+        current_year = datetime.now().year
 
         # Creating context
-        context = {"directors": directors}
+        context = {"directors": directors, "directors_history": directors_history, "current_year": current_year}
 
         return render(request, "about.html", context)

@@ -10,16 +10,16 @@
     <li><a href="#body">Home</a></li>
     <li class="menu-has-children menu-active"><a href="">SBG-RJ</a>
       <ul>
-        <li><a href="#">Sobre</a></li>
-        <li><a href="#">Eventos</a></li>
-        <li><a href="#">Notícias</a></li>
-        <li><a href="#">Produtos</a></li>
+        <li><a href="{% url 'web:about' %}">Sobre</a></li>
+        <li><a href="{% url 'web:events' %}">Eventos</a></li>
+        <li><a href="{% url 'web:news' %}">Notícias</a></li>
+        <li><a href="{% url 'web:products' %}">Produtos</a></li>
       </ul>
     </li>
     <li><a href="#">Publicações</a></li>
     <li><a href="#">Galeria</a></li>
     <li><a href="#">Regionais</a></li>
-    <li><a href="#">Contato</a></li>
+    <li><a href="{% url 'web:contact' %}">Contato</a></li>
   </ul>
 </nav><!-- #nav-menu-container -->
 {% endblock menu %}
@@ -32,20 +32,14 @@
   <div class="intro-content">
     <h2>SOCIEDADE BRASILEIRA DE GEOLOGIA – NÚCLEO RIO DE JANEIRO</h2>
     <div class="container">
-      <img src="../static/img/geology-icon.png"></img>
+      <img src="{% static 'img/geology-icon.png' %}" alt="Ícone com símbolo da Geologia"
+       title="Ícone com símbolo da Geologia"></img>
     </div>
     <br>
     <h5 class="about-quote">
       "Temos como o principal objetivo fomentar o desenvolvimento e divulgação da
       geociências na sociedade."
     </h5>
-  </div>
-  <div id="intro-carousel" class="owl-carousel">
-    <div class="item" style="background-image: url({% static 'img/intro-carousel/1.jpg' %});"></div>
-    <div class="item" style="background-image: url({% static 'img/intro-carousel/2.jpg' %});"></div>
-    <div class="item" style="background-image: url({% static 'img/intro-carousel/3.jpg' %});"></div>
-    <div class="item" style="background-image: url({% static 'img/intro-carousel/4.jpg' %});"></div>
-    <div class="item" style="background-image: url({% static 'img/intro-carousel/5.jpg' %});"></div>
   </div>
 </section><!-- #intro -->
 {% endblock  %}
@@ -80,11 +74,14 @@
         </p>
 
         <div class="container">
-          <img src="../static/img/Rio_de_Janeiro_Mountains.jpg" width="100%%"></img>
+          <img src="{% static 'img/montanhas-rio-de-janeiro.jpg' %}" width="100%" 
+           alt="Foto das montanhas do Rio de Janeiro com pôr do sol ao fundo."
+           title="Pôr do sol no relevo do Rio de Janeiro"></img>
         </div>
         <br>
         <div class="container">
-          <img src="../static/img/statute-download.png"></img>
+          <img src="{% static 'img/statute.png' %}" alt="Imagem para Download do Estatuto"
+           title="Download do estatuto do SBG"></img>
         </div>
       </div>
       <div class="col-lg-6 content">
@@ -146,8 +143,7 @@
     </div>
     <div class="row">
       {% for item in directors %}
-      <!-- adicionei esse, mas não achei legal hardcoded assim -->
-      {% if item.started_at.year == 2019 %}
+      {% if item.started_at.year == current_year %}
       <div class="col-lg-3 col-md-6">
         <div class="member">
           <div class="details">
@@ -167,28 +163,35 @@
 {% endif %}
 
 <br>
-
+{% if directors_history %}
 <!--==========================
       Directors History
     ============================-->
-<section id="director-history" class="wow fadeInUp">
-  <div class="container">
-    <div class="section-header">
-      <h2>Histórico de Diretorias</h2>
-    </div>
-    <div class="owl-carousel news-carousel">
-      {% for item in directors %}
-      {% ifchanged item.started_at %} <div class="news-item"> {% endifchanged %}
-        <h5>{{ item.first_name }}</h5>
-        <h6>{{ item.role }}</h6>
-        {% ifchanged item.started_at.year %}
-      </div> {% endifchanged %}
-      {% endfor %}
-
-    </div>
-  </div>
-</section>
-
+    <section id="history" class="wow fadeInUp">
+        <div class="container">
+          <div class="section-header">
+            <h2>Diretorias</h2>
+          </div>
+          <div class="owl-carousel news-carousel">
+            {% for item in directors_history %}
+            <div class="history-item">
+              <h3>Diretoria {{item.year}}</h3>
+              <hr>
+              {% for director in item.directors %}
+              <h4><strong>{{ director.role }}</strong></h4>
+              <span>{{director.first_name}} {{director.last_name}}</span>
+              <div class="details">
+                <h4>{{ director.name }}</h4>
+                <h6>{{ director.email }}</h6>
+              </div>
+              <hr>
+              {% endfor %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section><!-- #news -->
+{% endif %}
 
 <!--==========================
       Membership
