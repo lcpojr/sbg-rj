@@ -7,7 +7,7 @@
 ============================-->
 <nav id="nav-menu-container">
   <ul class="nav-menu">
-    <li><a href="#body">Home</a></li>
+    <li><a href="{% url 'web:home' %}">Home</a></li>
     <li class="menu-has-children menu-active"><a href="">SBG-RJ</a>
       <ul>
         <li><a href="{% url 'web:about' %}">Sobre</a></li>
@@ -17,7 +17,7 @@
       </ul>
     </li>
     <li><a href="#">Publicações</a></li>
-    <li><a href="#">Galeria</a></li>
+    <li><a href="{% url 'web:gallery' %}">Galeria</a></li>
     <li><a href="#">Regionais</a></li>
     <li><a href="{% url 'web:contact' %}">Contato</a></li>
   </ul>

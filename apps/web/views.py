@@ -6,8 +6,11 @@ from django.views.generic import View
 from apps.core.models.event import Event as EventModel
 from apps.core.models.news import News as NewsModel
 from apps.core.models.product import Product as ProductModel
+<<<<<<< HEAD
 from apps.core.models.gallery import Gallery as GalleryModel
 from apps.core.models.photo import Photo as PhotoModel
+=======
+>>>>>>> 35b0673bd9459387b37ae012f54898ba2d631181
 from apps.core.models.director import Director as DirectorModel
 
 from .forms import ContactCreateForm, OrderCreateForm
