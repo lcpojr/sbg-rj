@@ -10,7 +10,12 @@ class Publication(models.Model):
     This model contains the publications data.
     """
 
-    PUBLICATION_CHOICES = []
+    # Defining the choices variables
+    PUBLICATION_CHOICES = [
+        ("AS","Anais de Simpósio"),
+        ("AC","Anais de Congresso"),
+        ("CLIP","Clippings")
+    ]
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
