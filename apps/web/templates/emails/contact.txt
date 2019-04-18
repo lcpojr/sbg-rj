@@ -1,0 +1,20 @@
+{% if is_admin %}
+Novo contato recebido.
+
+Você recebeu um novo contato atrávez do website
+Segue abaixo as informações:
+{% else %}
+
+Obrigado pelo contato.
+
+Analisaremos as informações e entraremos em contato o mais breve possível.
+Informações do contato:
+{% endif %}
+
+Nome: {{ name }}
+
+Email: {{ email }}
+
+Assunto: {{ subject }}
+
+Descrição: {{ description }}
