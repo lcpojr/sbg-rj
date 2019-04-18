@@ -41,7 +41,7 @@
             {% for item in publications %}
                 {% ifchanged item.category %}
                 </div>      
-                <div class='section-header'><h2>{{item.category}}</h2></div>
+                <div class='section-header'><h2>{{item.get_category_display}}</h2></div>
                     <div class="row">
                 {% endifchanged %}
                     <div class="col-lg-4 col-md-6">
