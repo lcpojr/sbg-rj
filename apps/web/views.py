@@ -9,6 +9,7 @@ from apps.core.models.product import Product as ProductModel
 from apps.core.models.gallery import Gallery as GalleryModel
 from apps.core.models.photo import Photo as PhotoModel
 from apps.core.models.director import Director as DirectorModel
+from apps.core.models.publication import Publication as PublicationModel
 
 from .forms import ContactCreateForm, OrderCreateForm
 
@@ -203,3 +204,15 @@ class About(View):
         context = {"directors": directors, "directors_history": directors_history, "current_year": current_year}
 
         return render(request, "about.html", context)
+
+
+class Publication(View):
+    """
+    Its the Publications Page view.
+    It should contain all the Publications separated by category.
+    """
+
+    def get(self, request):
+        publications = PublicationModel.objects.all().order_by("category")
+
+        return render(request, "publications.html", {"publications": publications})
