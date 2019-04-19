@@ -1,72 +1,77 @@
+
+
 {% extends "base.html" %}
 {% load static %}
 
 {% block menu %}
 <!--==========================
-    Menu
-============================-->
+   Menu
+   ============================-->
 <nav id="nav-menu-container">
-    <ul class="nav-menu">
-        <li><a href="{% url 'web:home' %}">Home</a></li>
-        <li class="menu-has-children menu-active">
-            <a href="#">SBG-RJ</a>
-            <ul>
-                <li><a href="{% url 'web:about' %}">Sobre</a></li>
-                <li><a href="{% url 'web:events' %}">Eventos</a></li>
-                <li class="menu-active"><a href="{% url 'web:news' %}">Notícias</a></li>
-                <li><a href="{% url 'web:products' %}">Produtos</a></li>
-            </ul>
-        </li>
-        <li><a href="{% url 'web:publications' %}">Publicações</a></li>
-        <li><a href="{% url 'web:gallery' %}">Galeria</a></li>
-        <li><a href="{% url 'web:regionals' %}">Regionais</a></li>
-        <li><a href="{% url 'web:contact' %}">Contato</a></li>
-    </ul>
-</nav><!-- #nav-menu-container -->
+   <ul class="nav-menu">
+      <li><a href="{% url 'web:home' %}">Home</a></li>
+      <li class="menu-has-children menu-active">
+         <a href="#">SBG-RJ</a>
+         <ul>
+            <li><a href="{% url 'web:about' %}">Sobre</a></li>
+            <li><a href="{% url 'web:events' %}">Eventos</a></li>
+            <li class="menu-active"><a href="{% url 'web:news' %}">Notícias</a></li>
+            <li><a href="{% url 'web:products' %}">Produtos</a></li>
+         </ul>
+      </li>
+      <li><a href="{% url 'web:publications' %}">Publicações</a></li>
+      <li><a href="{% url 'web:gallery' %}">Galeria</a></li>
+      <li><a href="{% url 'web:regionals' %}">Regionais</a></li>
+      <li><a href="{% url 'web:contact' %}">Contato</a></li>
+   </ul>
+</nav>
+<!-- #nav-menu-container -->
 {% endblock menu %}
 
 {% block content %}
-    <!--==========================
-      News List
-    ============================-->
-    <section id="news-list" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Notícias</h2>
-          <p>Os ultimos acontecimentos na area geológica</p>
-        </div>
-        {% if news %}
-        <div class="row">
-            {% for item in news %}
-            <div class="col-lg-3 col-md-6">
-                <div class="news-data">
-                    <div class="pic">
-                        <a href="{% url 'web:news-show' item.slug %}">
-                            <img src="{{ item.icon.url }}" alt="Imagem da notícia {{ item.title }}" title="{{ item.title }}">
-                        </a>
-                    </div>
-                    <div class="details">
-                        <h4>{{ item.title }}</h4>
-                        <span>{{ item.publish_date }}</span>
-                        <div class="know-more">
-                            <a href="{% url 'web:news-show' item.slug %}">Saiba mais<i class="fa fa-question-circle"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        {% else %}
-        <div class="row">
-            <div class="col-lg-12 col-md-6">
-                <div class="news-data">
-                    <div class="details">
-                        <h4>Desculpe, não temos nenhuma notícia disponível no momento!</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endif %}
+<!--==========================
+   News List
+   ============================-->
+<section id="news-list" class="wow fadeInUp">
+   <div class="container">
+      <div class="section-header">
+         <h2>Notícias</h2>
+         <p>Os ultimos acontecimentos na area geológica</p>
       </div>
-    </section><!-- #news -->
+      {% if news %}
+      <div class="row">
+         {% for item in news %}
+         <div class="col-lg-3 col-md-6">
+            <div class="news-data">
+               <div class="pic">
+                  <a href="{% url 'web:news-show' item.slug %}">
+                  <img src="{{ item.icon.url }}" alt="Imagem da notícia {{ item.title }}" title="{{ item.title }}">
+                  </a>
+               </div>
+               <div class="details">
+                  <h4>{{ item.title }}</h4>
+                  <span>{{ item.publish_date }}</span>
+                  <div class="know-more">
+                     <a href="{% url 'web:news-show' item.slug %}">Saiba mais<i class="fa fa-question-circle"></i></a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+      {% else %}
+      <div class="row">
+         <div class="col-lg-12 col-md-6">
+            <div class="news-not-found">
+               <div class="details">
+                  <h4>Desculpe, não temos nenhuma notícia disponível no momento!</h4>
+               </div>
+            </div>
+         </div>
+      </div>
+      {% endif %}
+   </div>
+</section>
+<!-- #news -->
 {% endblock content %}
+
