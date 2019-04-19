@@ -2,6 +2,9 @@ from datetime import datetime
 
 from django.shortcuts import render
 from django.views.generic import View
+from django.conf import settings
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
 
 from apps.core.models.event import Event as EventModel
 from apps.core.models.news import News as NewsModel
@@ -86,19 +89,49 @@ class Products(View):
         if form.is_valid():
             message = True
 
-            """
-            send_mail(
-                "Você recebeu um novo pedido pelo seu WEBSITE",
-                "Cliente: {} \n Telefone: {} \n Email: {} \n {}".format(
-                    contact["nome"],
-                    contact["telefone"],
-                    contact["email"],
-                    contact["descricao"],
-                ),
+            # Build admin message context
+            message_context = {
+                "name": form.cleaned_data["name"],
+                "email": form.cleaned_data["email"],
+                "description": form.cleaned_data["description"],
+                "is_admin": True,
+            }
+
+            text_content = render_to_string("emails/order.txt", message_context)
+            html_content = render_to_string("emails/order.html", message_context)
+
+            # Build message data
+            email_message = EmailMultiAlternatives(
+                "Pedido recebido SBG-RJ",
+                text_content,
                 settings.DEFAULT_FROM_EMAIL,
                 settings.CONTACT_EMAILS,
             )
-            """
+
+            # Attach HTML content and sends the message
+            email_message.attach_alternative(html_content, "text/html")
+            email_message.content_subtype = "html"
+            email_message.send()
+
+            # Build client message context
+            message_context["is_admin"] = False
+
+            text_content = render_to_string("emails/order.txt", message_context)
+            html_content = render_to_string("emails/order.html", message_context)
+
+            # Build message data
+            email_message = EmailMultiAlternatives(
+                "Pedido recebido SBG-RJ",
+                text_content,
+                settings.DEFAULT_FROM_EMAIL,
+                settings.CONTACT_EMAILS,
+            )
+
+            # Attach HTML content and sends the message
+            email_message.attach_alternative(html_content, "text/html")
+            email_message.content_subtype = "html"
+            email_message.send()
+
         else:
             message = False
 
@@ -128,19 +161,50 @@ class Contact(View):
         if form.is_valid():
             message = True
 
-            """
-            send_mail(
-                "Uma pessoa entrou em contato pelo seu WEBSITE",
-                "Cliente: {} \n Telefone: {} \n Email: {} \n {}".format(
-                    contact["nome"],
-                    contact["telefone"],
-                    contact["email"],
-                    contact["descricao"],
-                ),
+            # Build admin message context
+            message_context = {
+                "name": form.cleaned_data["name"],
+                "email": form.cleaned_data["email"],
+                "subject": form.cleaned_data["subject"],
+                "description": form.cleaned_data["description"],
+                "is_admin": True,
+            }
+
+            text_content = render_to_string("emails/contact.txt", message_context)
+            html_content = render_to_string("emails/contact.html", message_context)
+
+            # Build message data
+            email_message = EmailMultiAlternatives(
+                "Contato recebido SBG-RJ",
+                text_content,
                 settings.DEFAULT_FROM_EMAIL,
                 settings.CONTACT_EMAILS,
             )
-            """
+
+            # Attach HTML content and sends the message
+            email_message.attach_alternative(html_content, "text/html")
+            email_message.content_subtype = "html"
+            email_message.send()
+
+            # Build client message context
+            message_context["is_admin"] = False
+
+            text_content = render_to_string("emails/contact.txt", message_context)
+            html_content = render_to_string("emails/contact.html", message_context)
+
+            # Build message data
+            email_message = EmailMultiAlternatives(
+                "Contato recebido SBG-RJ",
+                text_content,
+                settings.DEFAULT_FROM_EMAIL,
+                settings.CONTACT_EMAILS,
+            )
+
+            # Attach HTML content and sends the message
+            email_message.attach_alternative(html_content, "text/html")
+            email_message.content_subtype = "html"
+            email_message.send()
+
         else:
             message = False
 

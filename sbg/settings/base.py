@@ -145,3 +145,14 @@ FROALA_EDITOR_THEME = "gray"
 
 GRAPPELLI_ADMIN_TITLE = "SBG - RJ (Administração)"
 GRAPPELLI_AUTOCOMPLETE_LIMIT = 30
+
+# Email
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+
+DEFAULT_FROM_EMAIL = "contato@sbg-rj.com.br"
+CONTACT_EMAILS = []
