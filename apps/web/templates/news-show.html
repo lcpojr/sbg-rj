@@ -13,13 +13,13 @@
             <ul>
                 <li><a href="{% url 'web:about' %}">Sobre</a></li>
                 <li><a href="{% url 'web:events' %}">Eventos</a></li>
-                <li><a href="{% url 'web:news' %}">Notícias</a></li>
+                <li class="menu-active"><a href="{% url 'web:news' %}">Notícias</a></li>
                 <li><a href="{% url 'web:products' %}">Produtos</a></li>
             </ul>
         </li>
         <li><a href="{% url 'web:publications' %}">Publicações</a></li>
         <li><a href="{% url 'web:gallery' %}">Galeria</a></li>
-        <li><a href="#">Regionais</a></li>
+        <li><a href="{% url 'web:regionals' %}">Regionais</a></li>
         <li><a href="{% url 'web:contact' %}">Contato</a></li>
     </ul>
 </nav><!-- #nav-menu-container -->
