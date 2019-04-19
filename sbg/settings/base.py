@@ -125,7 +125,7 @@ CACHES = {
 
 CACHE_MIDDLEWARE_ALIAS = "default"
 CACHE_MIDDLEWARE_SECONDS = 3600
-CACHE_MIDDLEWARE_KEY_PREFIX = "sbg-rj.com.br"
+CACHE_MIDDLEWARE_KEY_PREFIX = "www.sbg-rj.org.br"
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
