@@ -280,3 +280,13 @@ class Publication(View):
         publications = PublicationModel.objects.all().order_by("category")
 
         return render(request, "publications.html", {"publications": publications})
+
+
+class Regionals(View):
+    """
+    Its the Regionals Page view.
+    It only renders a static page.
+    """
+    def get(self, request):
+
+        return render(request, "regionals.html")
