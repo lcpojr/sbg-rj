@@ -224,6 +224,7 @@ class Regionals(View):
     Its the Regionals Page view.
     It only renders a static page.
     """
+
     def get(self, request):
 
         return render(request, "regionals.html")

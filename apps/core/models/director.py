@@ -53,3 +53,6 @@ class Director(models.Model):
 
     def __str__(self):
         return "{} ()".format(self.first_name, self.email)
+
+    def full_name(self):
+        return "{} {}".format(self.first_name, self.last_name)
