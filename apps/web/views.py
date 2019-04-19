@@ -3,8 +3,6 @@ from datetime import datetime
 from django.shortcuts import render
 from django.views.generic import View
 from django.conf import settings
-from django.core.mail import EmailMultiAlternatives
-from django.template.loader import render_to_string
 
 from apps.core.models.event import Event as EventModel
 from apps.core.models.news import News as NewsModel
@@ -15,6 +13,7 @@ from apps.core.models.director import Director as DirectorModel
 from apps.core.models.publication import Publication as PublicationModel
 
 from .forms import ContactCreateForm, OrderCreateForm
+from .helpers import group_directors, send_email
 
 
 class Home(View):
@@ -89,48 +88,27 @@ class Products(View):
         if form.is_valid():
             message = True
 
-            # Build admin message context
-            message_context = {
-                "name": form.cleaned_data["name"],
-                "email": form.cleaned_data["email"],
-                "description": form.cleaned_data["description"],
-                "is_admin": True,
-            }
-
-            text_content = render_to_string("emails/order.txt", message_context)
-            html_content = render_to_string("emails/order.html", message_context)
-
-            # Build message data
-            email_message = EmailMultiAlternatives(
+            # Build and sent a admin email
+            send_email(
                 "Pedido recebido SBG-RJ",
-                text_content,
                 settings.DEFAULT_FROM_EMAIL,
                 settings.CONTACT_EMAILS,
+                "emails/order.txt",
+                "emails/order.html",
+                form.cleaned_data,
+                True,
             )
 
-            # Attach HTML content and sends the message
-            email_message.attach_alternative(html_content, "text/html")
-            email_message.content_subtype = "html"
-            email_message.send()
-
-            # Build client message context
-            message_context["is_admin"] = False
-
-            text_content = render_to_string("emails/order.txt", message_context)
-            html_content = render_to_string("emails/order.html", message_context)
-
-            # Build message data
-            email_message = EmailMultiAlternatives(
+            # Build and send a client email
+            send_email(
                 "Pedido recebido SBG-RJ",
-                text_content,
                 settings.DEFAULT_FROM_EMAIL,
                 settings.CONTACT_EMAILS,
+                "emails/order.txt",
+                "emails/order.html",
+                form.cleaned_data,
+                False,
             )
-
-            # Attach HTML content and sends the message
-            email_message.attach_alternative(html_content, "text/html")
-            email_message.content_subtype = "html"
-            email_message.send()
 
         else:
             message = False
@@ -161,49 +139,27 @@ class Contact(View):
         if form.is_valid():
             message = True
 
-            # Build admin message context
-            message_context = {
-                "name": form.cleaned_data["name"],
-                "email": form.cleaned_data["email"],
-                "subject": form.cleaned_data["subject"],
-                "description": form.cleaned_data["description"],
-                "is_admin": True,
-            }
-
-            text_content = render_to_string("emails/contact.txt", message_context)
-            html_content = render_to_string("emails/contact.html", message_context)
-
-            # Build message data
-            email_message = EmailMultiAlternatives(
+            # Builds and sends admin email
+            send_email(
                 "Contato recebido SBG-RJ",
-                text_content,
                 settings.DEFAULT_FROM_EMAIL,
                 settings.CONTACT_EMAILS,
+                "emails/contact.txt",
+                "emails/contact.html",
+                form.cleaned_data,
+                True,
             )
 
-            # Attach HTML content and sends the message
-            email_message.attach_alternative(html_content, "text/html")
-            email_message.content_subtype = "html"
-            email_message.send()
-
-            # Build client message context
-            message_context["is_admin"] = False
-
-            text_content = render_to_string("emails/contact.txt", message_context)
-            html_content = render_to_string("emails/contact.html", message_context)
-
-            # Build message data
-            email_message = EmailMultiAlternatives(
+            # Build and sends client email
+            send_email(
                 "Contato recebido SBG-RJ",
-                text_content,
                 settings.DEFAULT_FROM_EMAIL,
-                settings.CONTACT_EMAILS,
+                form.cleaned_data["email"],
+                "emails/contact.txt",
+                "emails/contact.html",
+                form.cleaned_data,
+                False,
             )
-
-            # Attach HTML content and sends the message
-            email_message.attach_alternative(html_content, "text/html")
-            email_message.content_subtype = "html"
-            email_message.send()
 
         else:
             message = False
@@ -230,42 +186,23 @@ class Gallery(View):
             return render(request, "gallery.html", {"galleries": galleries})
 
 
-def group_directors(directors):
-    """
-    This function will group all directors by year
-    It will be used inside the about View
-    """
-    history = []
-    for director in directors:
-        if history == []:
-            history.append({"year": director.started_at.year, "directors": [director]})
-            check = False
-
-        for value in history:
-            if value['year'] == director.started_at.year:
-                value['directors'].append(director)
-                check = True
-            else:
-                check = False
-
-        if not check:
-            history.append({"year": director.started_at.year, "directors": [director]})
-
-    return history
-
-
 class About(View):
     """
     Its the About Page view.
     It should contain all the directors to be rendered in the website.
     """
+
     def get(self, request):
         directors = DirectorModel.objects.all().order_by("-started_at")
         directors_history = group_directors(directors)
         current_year = datetime.now().year
-        
+
         # Creating Context
-        context = {"directors": directors, "directors_history": directors_history, "current_year": current_year}
+        context = {
+            "directors": directors,
+            "directors_history": directors_history,
+            "current_year": current_year,
+        }
 
         return render(request, "about.html", context)
 
