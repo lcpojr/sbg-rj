@@ -1,0 +1,235 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block menu %}
+<!--==========================
+    Menu
+============================-->
+<nav id="nav-menu-container">
+    <ul class="nav-menu">
+        <li><a href="#body">Home</a></li>
+        <li class="menu-has-children menu-active"><a href="">SBG-RJ</a>
+            <ul>
+                <li><a href="{% url 'web:about' %}">Sobre</a></li>
+                <li><a href="{% url 'web:events' %}">Eventos</a></li>
+                <li><a href="{% url 'web:news' %}">Notícias</a></li>
+                <li><a href="{% url 'web:products' %}">Produtos</a></li>
+            </ul>
+        </li>
+        <li><a href="{% url 'web:publications' %}">Publicações</a></li>
+        <li><a href="{% url 'web:gallery' %}">Galeria</a></li>
+        <li><a href="{% url 'web:regionals' %}">Regionais</a></li>
+        <li><a href="{% url 'web:contact' %}">Contato</a></li>
+    </ul>
+</nav><!-- #nav-menu-container -->
+{% endblock menu %}
+
+
+{% block content %}
+<!--==========================
+      Regionals Section
+    ============================-->
+<br>
+<section id="regionals-list" class="wow fadeInUp">
+    <div class="container">
+        <div class="section-header">
+          <h2>Regionais SBG</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="regionals-data">
+                    <div class="details">    
+                        <h5>SBG-BA (Regimento Bahia e Sergipe)</h5>
+                        <p>
+                            IG/UFBA R. Caetano Moura, 123 – Federação 40210-340 – Salvador – BA
+                            <br>Tel.: [71] 3235.6789
+                            <br> <a href="http://www.geocities.com/sbg_bahia">http://www.geocities.com/sbg_bahia</a> 
+                            <br>sbgbase@gmail.com
+                        </p>
+                    </div>                    
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="regionals-data">
+                    <div class="details">
+                        <h5>SBG-BR</h5>
+                        <p>
+                            UNB – Campus Darcy Ribeiro Instituto de Geociências
+                            Sala A1 – 363/10 – Asa Norte 70919-900 – Brasília – DF<br>
+                            Tel.: [61] 3274.4533
+                            <a href="http://www.unb.br/ig/sbg">http://www.unb.br/ig/sbg</a><br>
+                            sbg@unb.br
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="regionals-data">
+                    <div class="details">
+                        <h5>SBG-CO</h5>
+                        <p>
+                            UFMT – ICET Geologia<br>
+                            Av. Fernando Corrêa, S/N – Coxipó 78060-900 – Cuiabá – MT<br>
+                            Tel.: [65] 3615.8754/8758<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="regionals-data">
+                    <div class="details">
+                        <h5>SBG-NE</h5>
+                        <p>
+                            UFRN – DG/LAE-GEA<br>
+                            Campus Universitário Lagoa Nova Caixa Postal 1639 59078-970 – Natal – RN<br>
+                            Tel.: [84] 3211.9616<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="regionals-data">
+                    <div class="details">
+                        <h5>SBG-NO</h5>
+                        <p>
+                            Fone: CPRM/Belém<br>
+                            Tel.: [91] 3246.8577, <br>Telefax: [91] 3276.2526
+                            sbgno2@bol.com.br
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="regionals-data">
+                    <div class="details">
+                        <h5>SBG-PR</h5>
+                        <p>
+                            Caixa Postal 19025 – Centro Politécnico 81531-990 – Curitiba – PR<br>
+                            Tel.: [41] 3361.3694<br>
+                            sbg-pr@geologia.ufpr.br
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="regionals-data">
+                    <div class="details">
+                        <h5>SBG-MG</h5>
+                        <p>
+                            Rua Aimorés, 562 / Sl. 105
+                            Cep: 30140-070 – BH/MG<br>
+                            Tel.:[31] 3224-4097<br>
+                            <a href="http://sbg-mg.org.br">http://sbg-mg.org.br</a>
+                            <br>
+                            sbg@unb.br
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="regionals-data">
+                    <div class="details">
+                        <h5>SBG-RS</h5>
+                        <p>
+                            IG/UFRGS – Av. Bento Gonçalves, 9500 91540-000
+                            Caixa Postal 15006 – 91501-970 – Porto Alegre – RS<br>
+                            Tel.: [51] 3316.6360, Fax: [51] 3316.6360
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="regionals-data">
+                    <div class="details">
+                        <h5>SBG-SP</h5>
+                        <p>
+                            Rua do Lago, 549 – Cidade Universitária 05508-080 – São Paulo<br>
+                            Tel.: [19] 3526.2809
+                            <a href="http://petro.rc.unesp.br/sbgnsp">http://petro.rc.unesp.br/sbgnsp</a> 
+                            sbg@unb.br
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- #about -->
+
+<!--==========================
+      Regionals Section
+    ============================-->
+    <section id="regionals-list" class="wow fadeInUp">
+            <div class="container">
+                <div class="section-header">
+                  <h2>Referências</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 references">
+                        <div class="regionals-data">
+                            <div class="details">
+                                <h5>Universidade Federal do Rio de Janeiro</h5>
+                                <p>
+                                    Departamento de Geologia
+                                    <a href="http://www.geologia.ufrj.br">http://www.geologia.ufrj.br</a> 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 references">
+                        <div class="regionals-data">
+                            <div class="details">
+                                <h5>Universidade Federal do Espírito Santo</h5>
+                                <p>
+                                    Departamento de Geologia
+                                    <a href="http://www.geologia.ufes.br/">http://www.geologia.ufes.br/</a>
+                                    <br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 references">
+                        <div class="regionals-data">
+                            <div class="details">
+                                <h5>Universiade Federal Rural do Rio de Janeiro</h5>
+                                <p>
+                                    Dep. de Geociências
+                                    <a href="http://r1.ufrrj.br/degeo/">http://r1.ufrrj.br/degeo/</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="regionals-data">
+                            <div class="details">
+                                <h5>Universidade Estadual do Rio de Janeiro</h5>
+                                <p>
+                                    Faculdade de Geologia
+                                    <a href="http://www.fgel.uerj.br/site/">http://www.fgel.uerj.br/site/</a>
+                                </p>
+                            </div>
+                        </div>                                                  
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+
+    <!--==========================
+          Membership
+        ============================-->
+<section id="membership" class="wow fadeInUp">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 text-center text-lg-left">
+                <h3 class="cta-title">Torne-se membro</h3>
+                <p class="cta-text">
+                Faça parte de uma associação científica com mais de 70 anos de história e prestígio internacional
+                </p>
+            </div>
+            <div class="col-lg-3 cta-btn-container text-center">
+                <a class="cta-btn align-middle" href="http://www.sbgeo.org.br/">Inscreva-se</a>
+            </div>
+        </div>
+    </div>
+<section><!-- #membership -->
+<br>
+    {% endblock content %}

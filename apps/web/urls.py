@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import About, Contact, Events, Gallery, Home, News, Products, Publication
+from .views import About, Contact, Events, Gallery, Home, News, Products, Publication, Regionals
 
 app_name = "web"
 
@@ -23,5 +23,7 @@ urlpatterns = [
     # About uris
     path("sobre", About.as_view(), name="about"),
     # Publications uirs
-    path('publicacoes', Publication.as_view(), name="publications")
+    path('publicacoes', Publication.as_view(), name="publications"),
+    # Regionals uri
+    path('regionais', Regionals.as_view(), name="regionals")
 ]
