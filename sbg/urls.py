@@ -17,6 +17,7 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
+
 from apps.core.admin import admin_site
 
 static_uris = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

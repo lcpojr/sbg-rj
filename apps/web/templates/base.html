@@ -6,10 +6,12 @@
 <html lang="pt-br">
    <head>
       <meta charset="utf-8">
-      <title>SBG-RJ</title>
+      <title>{% block title %}{% endblock title %}</title>
       <meta content="width=device-width, initial-scale=1.0" name="viewport">
-      <meta content="" name="keywords">
-      <meta content="" name="description">
+
+      <!-- Keywords and description -->
+      <meta content="sbg, sbg rj, sbgg rj, sbg geologia, sbg nucleo rio, sociedade brasileira de geologia, sociedade brasileira de geologia nucleo rio" name="keywords">
+      <meta content="A SBG (Sociedade Brasileira de Geologia) é uma entidade técnico-científica , sem fins lucrativos, fundada em 1946. Temos como missão fomentar o conhecimento e o desenvolvimento das geociências, da geologia aplicada e da pesquisa e tecnologia correlata e o aproveitamento racional e sustentável de recursos minerais e hídricos." name="description">
 
       <!-- Manifest -->
       <link rel="manifest" href="{% static 'site.webmanifest' %}">
