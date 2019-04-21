@@ -8,6 +8,8 @@ from .custom_admins.product import CustomProductAdmin
 from .custom_admins.publication import CustomPublicationAdmin
 from .custom_admins.photo import CustomPhotoAdmin
 from .custom_admins.gallery import CustomGalleryAdmin
+from .custom_admins.slideshow import CustomSlideshowAdmin
+
 
 from .models.user import User
 from .models.director import Director
@@ -17,6 +19,7 @@ from .models.product import Product
 from .models.publication import Publication
 from .models.photo import Photo
 from .models.gallery import Gallery
+from .models.slideshow import Slideshow
 
 
 class CustomAdminSite(AdminSite):
@@ -36,3 +39,4 @@ admin_site.register(Product, CustomProductAdmin)
 admin_site.register(Publication, CustomPublicationAdmin)
 admin_site.register(Photo, CustomPhotoAdmin)
 admin_site.register(Gallery, CustomGalleryAdmin)
+admin_site.register(Slideshow, CustomSlideshowAdmin)

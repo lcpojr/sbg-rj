@@ -48,9 +48,21 @@ SBG-RJ &#8211; Sociedade Brasileira de geologia &#8211; Núcleo RJ
    </div>
    {% endif %}
    <div id="intro-carousel" class="owl-carousel" >
-      {% if slideshow %}
-         {% for item in slideshow %}
+      {% if slideshow or events_slideshow %}
+         {% for item in events_slideshow %}
             <div class="item" style="background-image: url({{ item.icon.url }});">
+               <div class="row">
+                  <div class="col-lg-7"></div>
+                  <div class="col-lg-4 item-content">
+                     <h4 class="slide-title">{{ item.title }}</h4>
+                     <p class="slide-body">{{ item.resume }}</p>
+                  </div>
+                  <div class="col-lg-1"></div>
+               </div>
+            </div>
+         {% endfor %}
+         {% for item in slideshow %}
+            <div class="item" style="background-image: url({{ item.image.url }});">
                <div class="row">
                   <div class="col-lg-7"></div>
                   <div class="col-lg-4 item-content">

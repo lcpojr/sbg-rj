@@ -11,6 +11,7 @@ from apps.core.models.gallery import Gallery as GalleryModel
 from apps.core.models.photo import Photo as PhotoModel
 from apps.core.models.director import Director as DirectorModel
 from apps.core.models.publication import Publication as PublicationModel
+from apps.core.models.slideshow import Slideshow as SlideshowModel
 
 from .forms import ContactCreateForm, OrderCreateForm
 from .helpers import group_directors, send_email
@@ -26,10 +27,18 @@ class Home(View):
         # Getting objects
         events = EventModel.objects.all().order_by("starts_at")[:8]
         news = NewsModel.objects.all().order_by("publish_date")[:9]
-        slideshow = EventModel.objects.filter(slideshow=True)
+
+        # Slides
+        slideshow = SlideshowModel.objects.all()
+        events_slideshow = EventModel.objects.filter(slideshow=True)
 
         # Creating context
-        context = {"events": events, "news": news, "slideshow": slideshow}
+        context = {
+            "events": events,
+            "news": news,
+            "slideshow": slideshow,
+            "events_slideshow": events_slideshow,
+        }
 
         return render(request, "home.html", context)
 
