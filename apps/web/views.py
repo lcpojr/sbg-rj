@@ -26,9 +26,10 @@ class Home(View):
         # Getting objects
         events = EventModel.objects.all().order_by("starts_at")[:8]
         news = NewsModel.objects.all().order_by("publish_date")[:9]
+        slideshow = EventModel.objects.filter(slideshow=True)
 
         # Creating context
-        context = {"events": events, "news": news}
+        context = {"events": events, "news": news, "slideshow": slideshow}
 
         return render(request, "home.html", context)
 
