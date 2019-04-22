@@ -24,7 +24,7 @@ class CustomEventAdmin(admin.ModelAdmin):
         ),
         (
             "Página inícial",
-            {"classes": ("grp-collapse grp-open",), "fields": ("slideshow",)},
+            {"classes": ("grp-collapse grp-open",), "fields": ("slideshow", "resume")},
         ),
         (
             "Periodo de atividade",

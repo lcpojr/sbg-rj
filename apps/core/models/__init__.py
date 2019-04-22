@@ -4,5 +4,6 @@ from .news import News
 from .event import Event
 from .product import Product
 from .publication import Publication
-from .photo import  Photo
+from .photo import Photo
 from .gallery import Gallery
+from .slideshow import Slideshow

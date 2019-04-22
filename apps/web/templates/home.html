@@ -37,6 +37,7 @@ SBG-RJ &#8211; Sociedade Brasileira de geologia &#8211; Núcleo RJ
    Intro Section
    ============================-->
 <section id="intro">
+   {% if not slideshow %}
    <div class="intro-content">
       <h2>SOCIEDADE BRASILEIRA DE GEOLOGIA – NÚCLEO MINAS GERAIS</h2>
       <h5>“DIFUNDINDO O CONHECIMENTO E O DESENVOLVIMENTO DAS GEOCIÊNCIAS”</h5>
@@ -45,16 +46,45 @@ SBG-RJ &#8211; Sociedade Brasileira de geologia &#8211; Núcleo RJ
          <a href="{% url 'web:news' %}" class="btn-news scrollto">Notícias</a>
       </div>
    </div>
+   {% endif %}
    <div id="intro-carousel" class="owl-carousel" >
-      <div class="item" style="background-image: url({% static 'img/intro-carousel/1.jpg' %});"></div>
-      <div class="item" style="background-image: url({% static 'img/intro-carousel/2.jpg' %});"></div>
-      <div class="item" style="background-image: url({% static 'img/intro-carousel/3.jpg' %});"></div>
-      <div class="item" style="background-image: url({% static 'img/intro-carousel/4.jpg' %});"></div>
-      <div class="item" style="background-image: url({% static 'img/intro-carousel/5.jpg' %});"></div>
+      {% if slideshow or events_slideshow %}
+         {% for item in events_slideshow %}
+            <div class="item" style="background-image: url({{ item.icon.url }});">
+               <div class="row">
+                  <div class="col-lg-7"></div>
+                  <div class="col-lg-4 item-content">
+                     <h4 class="slide-title">{{ item.title }}</h4>
+                     <p class="slide-body">{{ item.resume }}</p>
+                  </div>
+                  <div class="col-lg-1"></div>
+               </div>
+            </div>
+         {% endfor %}
+         {% for item in slideshow %}
+            <div class="item" style="background-image: url({{ item.image.url }});">
+               <div class="row">
+                  <div class="col-lg-7"></div>
+                  <div class="col-lg-4 item-content">
+                     <h4 class="slide-title">{{ item.title }}</h4>
+                     <p class="slide-body">{{ item.resume }}</p>
+                  </div>
+                  <div class="col-lg-1"></div>
+               </div>
+            </div>
+         {% endfor %}
+      {% else %}
+      <div class="item-default" style="background-image: url({% static 'img/intro-carousel/1.jpg' %});"></div>
+      <div class="item-default" style="background-image: url({% static 'img/intro-carousel/2.jpg' %});"></div>
+      <div class="item-default" style="background-image: url({% static 'img/intro-carousel/3.jpg' %});"></div>
+      <div class="item-default" style="background-image: url({% static 'img/intro-carousel/4.jpg' %});"></div>
+      <div class="item-default" style="background-image: url({% static 'img/intro-carousel/5.jpg' %});"></div>
+      {% endif %}
    </div>
 </section>
 <!-- #intro -->
 {% endblock  %}
+
 {% block content %}
 
 <!--==========================
@@ -148,7 +178,7 @@ SBG-RJ &#8211; Sociedade Brasileira de geologia &#8211; Núcleo RJ
             <div class="event-data">
                <div class="pic">
                   <a href="{% url 'web:events-show' item.slug %}">
-                  <img src="{{ item.icon.url }}" alt="Imagem do evento {{ item.title }}" title="{{ item.title }}">
+                     <img src="{{ item.icon.url }}" alt="Imagem do evento {{ item.title }}" title="{{ item.title }}">
                   </a>
                </div>
                <div class="details">

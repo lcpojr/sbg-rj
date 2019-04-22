@@ -15,6 +15,7 @@ class Event(models.Model):
 
     # Identity
     title = models.CharField(max_length=100, verbose_name="Título")
+    resume = models.CharField(max_length=250, verbose_name="Resumo")
     description = models.TextField(verbose_name="Descrição")
 
     slug = models.SlugField(
