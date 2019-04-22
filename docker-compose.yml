@@ -16,7 +16,9 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
 
-  web:
+  app:
+    env_file:
+      - app.env
     depends_on:
       - postgres
     image: sbg-rj
@@ -26,7 +28,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - .:/web
+      - .:/app
     command: >
       bash -c "python manage.py migrate && 
                python manage.py runserver 0.0.0.0:8000"
