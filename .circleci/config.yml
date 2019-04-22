@@ -33,14 +33,6 @@ jobs:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
-      # Building docker containers
-      - run:
-          name: build containers
-          command: |
-            docker-compose build
-            docker-compose up -d
-
-
       # Running tests
       - run:
           name: run tests
