@@ -12,15 +12,15 @@ class Publication(models.Model):
 
     # Defining the choices variables
     PUBLICATION_CHOICES = [
-        ("AS","Anais de Simpósio"),
-        ("AC","Anais de Congresso"),
-        ("CLIP","Clippings")
+        ("AS", "Anais de Simpósio"),
+        ("AC", "Anais de Congresso"),
+        ("CLIP", "Clippings"),
     ]
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     # Identity
-    name = models.CharField(max_length=100, verbose_name="Nome")
+    name = models.CharField(max_length=100, verbose_name="Nome", unique=True)
     category = models.CharField(
         max_length=50, null=True, verbose_name="Categoria", choices=PUBLICATION_CHOICES
     )

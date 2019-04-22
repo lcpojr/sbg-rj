@@ -16,7 +16,7 @@ class CustomEventAdmin(admin.ModelAdmin):
     list_display = ("title", "starts_at", "ends_at", "created_at", "updated_at")
     list_filter = ("title", "starts_at", "ends_at", "created_at", "updated_at")
 
-    # The filds to be used in updates on Event model.
+    # The fields to be used in updates on Event model.
     fieldsets = (
         (
             "Informações básicas",

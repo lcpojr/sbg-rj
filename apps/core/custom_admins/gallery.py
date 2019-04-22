@@ -16,7 +16,7 @@ class CustomGalleryAdmin(admin.ModelAdmin):
     list_display = ("title", "category", "image", "created_at", "updated_at")
     list_filter = ("title", "category", "image", "created_at", "updated_at")
 
-    # The filds to be used in updates on Gallery model.
+    # The fields to be used in updates on Gallery model.
     fieldsets = (
         (
             "Informações básicas",

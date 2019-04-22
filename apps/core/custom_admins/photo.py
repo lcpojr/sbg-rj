@@ -11,7 +11,7 @@ class CustomPhotoAdmin(admin.ModelAdmin):
     list_display = ("id", "image", "gallery", "created_at", "updated_at")
     list_filter = ("id", "image", "gallery", "created_at", "updated_at")
 
-    # The filds to be used in updates on Photo model.
+    # The fields to be used in updates on Photo model.
     fieldsets = (
         (
             "Informações básicas",

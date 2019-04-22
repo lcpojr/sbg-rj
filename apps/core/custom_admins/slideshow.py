@@ -12,7 +12,7 @@ class CustomSlideshowAdmin(admin.ModelAdmin):
     list_display = ("title", "image", "created_at", "updated_at")
     list_filter = ("title", "image", "created_at", "updated_at")
 
-    # The filds to be used in updates on Slideshow model.
+    # The fields to be used in updates on Slideshow model.
     fieldsets = (
         (
             "Informações básicas",

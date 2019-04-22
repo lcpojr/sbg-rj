@@ -25,7 +25,7 @@ class CustomDirectorAdmin(admin.ModelAdmin):
         "updated_at",
     )
 
-    # The filds to be used in updates on Director model.
+    # The fields to be used in updates on Director model.
     fieldsets = (
         (
             "Informações básicas",

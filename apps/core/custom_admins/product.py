@@ -28,7 +28,7 @@ class CustomProductAdmin(admin.ModelAdmin):
         "updated_at",
     )
 
-    # The filds to be used in updates on Product model.
+    # The fields to be used in updates on Product model.
     fieldsets = (
         (
             "Identidade",
