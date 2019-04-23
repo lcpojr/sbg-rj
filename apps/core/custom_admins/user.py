@@ -33,7 +33,7 @@ class CustomUserAdmin(UserAdmin):
         "updated_at",
     )
 
-    # The filds to be used in updates on User model.
+    # The fields to be used in updates on User model.
     fieldsets = (
         (
             "Informações básicas",

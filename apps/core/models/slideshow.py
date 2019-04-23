@@ -13,7 +13,7 @@ class Slideshow(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     # Content
-    title = models.CharField(max_length=100, verbose_name="Título")
+    title = models.CharField(max_length=100, verbose_name="Título", unique=True)
     resume = models.CharField(max_length=250, verbose_name="Resumo")
     image = models.ImageField(
         verbose_name="Imagem",
