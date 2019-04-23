@@ -52,7 +52,7 @@ CUSTOM_APPS = ["apps.core", "apps.web"]
 INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS
 
 MIDDLEWARE = [
-    "django.middleware.cache.UpdateCacheMiddleware",
+    # "django.middleware.cache.UpdateCacheMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -60,7 +60,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django.middleware.cache.FetchFromCacheMiddleware",
+    # "django.middleware.cache.FetchFromCacheMiddleware",
 ]
 
 ROOT_URLCONF = "sbg.urls"
@@ -116,16 +116,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # Cache backend
 # https://docs.djangoproject.com/en/2.2/topics/cache/
 
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-        "LOCATION": "unique-snowflake",
-    }
-}
+# CACHES = {
+#    "default": {
+#        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+#        "LOCATION": "unique-snowflake",
+#    }
+# }
 
-CACHE_MIDDLEWARE_ALIAS = "default"
-CACHE_MIDDLEWARE_SECONDS = 3600
-CACHE_MIDDLEWARE_KEY_PREFIX = "www.sbg-rj.org.br"
+# CACHE_MIDDLEWARE_ALIAS = "default"
+# CACHE_MIDDLEWARE_SECONDS = 3600
+# CACHE_MIDDLEWARE_KEY_PREFIX = "www.sbg-rj.org.br"
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
