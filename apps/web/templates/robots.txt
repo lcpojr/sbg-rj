@@ -2,4 +2,7 @@ User-agent: *
 Allow: /
 
 User-agent: *
+Allow: /sitemap.xml
+
+User-agent: *
 Disallow: /admin/
