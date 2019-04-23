@@ -7,6 +7,8 @@ from django.db import models
 
 from .user import User
 
+from tinymce.models import HTMLField
+
 
 class Product(models.Model):
     """
@@ -17,7 +19,7 @@ class Product(models.Model):
 
     # Identity
     name = models.CharField(max_length=100, verbose_name="Nome")
-    description = models.TextField(verbose_name="Descrição")
+    description = HTMLField(verbose_name="Descrição")
 
     slug = models.SlugField(
         max_length=500,

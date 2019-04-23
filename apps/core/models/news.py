@@ -7,6 +7,8 @@ from django.db import models
 
 from .user import User
 
+from tinymce.models import HTMLField
+
 
 class News(models.Model):
     """
@@ -17,8 +19,8 @@ class News(models.Model):
 
     # Identity
     title = models.CharField(max_length=100, verbose_name="Título da Notícia")
-    resume = models.TextField(verbose_name="Resumo da Notícia")
-    description = models.TextField(verbose_name="Descrição")
+    resume = HTMLField(verbose_name="Resumo da Notícia")
+    description = HTMLField(verbose_name="Descrição")
     publish_date = models.DateTimeField(verbose_name="Data da Notícia")
 
     slug = models.SlugField(
