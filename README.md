@@ -31,3 +31,6 @@ docker-compose up -d
 - To clean the network use `docker network prune -f`;
 - To access the application container use `docker-compose exec web sh`;
 
+## Testing
+
+To run the tests use `python manage.py test`.
