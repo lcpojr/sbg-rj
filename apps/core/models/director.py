@@ -1,6 +1,7 @@
 import uuid
 
 from django.db import models
+
 from .user import User
 
 
@@ -56,3 +57,4 @@ class Director(models.Model):
 
     def full_name(self):
         return "{} {}".format(self.first_name, self.last_name)
+

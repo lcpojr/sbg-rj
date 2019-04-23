@@ -1,6 +1,7 @@
 from django.urls import path
 from django.contrib.sitemaps.views import sitemap
 from django.views.generic import TemplateView as Robots
+from django.views.decorators.cache import cache_page
 
 from .views import (
     About,
@@ -44,16 +45,16 @@ urlpatterns = [
     path("produtos", Products.as_view(), name="products"),
     path("produtos/<slug:slug>/", Products.as_view(), name="products-show"),
     # Contact uris
-    path("fale-conosco", Contact.as_view(), name="contact"),
+    path("fale-conosco", cache_page(60 * 10)(Contact.as_view()), name="contact"),
     # Gallery uris
     path("galeria", Gallery.as_view(), name="gallery"),
     path("galeria/<slug:slug>/", Gallery.as_view(), name="gallery-show"),
     # About uris
-    path("sobre", About.as_view(), name="about"),
+    path("sobre", cache_page(60 * 10)(About.as_view()), name="about"),
     # Publications uirs
     path("publicacoes", Publication.as_view(), name="publications"),
     # Regionals uri
-    path("regionais", Regionals.as_view(), name="regionals"),
+    path("regionais", cache_page(60 * 10)(Regionals.as_view()), name="regionals"),
     # Extras
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     path(

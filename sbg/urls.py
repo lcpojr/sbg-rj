@@ -25,6 +25,7 @@ media_uris = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns = (
     [
+        path("tinymce/", include("tinymce.urls")),
         path("grappelli/", include("grappelli.urls")),
         path("admin/", admin_site.urls),
         path("", include("apps.web.urls", namespace="website")),

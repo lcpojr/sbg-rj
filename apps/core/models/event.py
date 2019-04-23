@@ -1,8 +1,12 @@
 import uuid
 
+from django.contrib.sitemaps import ping_google
 from django.utils.text import slugify
 from django.core.validators import FileExtensionValidator
 from django.db import models
+
+from tinymce.models import HTMLField
+
 from .user import User
 
 
@@ -16,7 +20,7 @@ class Event(models.Model):
     # Identity
     title = models.CharField(max_length=100, verbose_name="Título")
     resume = models.CharField(max_length=250, verbose_name="Resumo")
-    description = models.TextField(verbose_name="Descrição")
+    description = HTMLField(verbose_name="Descrição")
 
     slug = models.SlugField(
         max_length=500,
@@ -102,3 +106,8 @@ class Event(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Event, self).save(*args, **kwargs)
+
+        try:
+            ping_google()
+        except Exception:
+            pass

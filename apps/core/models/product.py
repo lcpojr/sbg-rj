@@ -1,8 +1,10 @@
 import uuid
 
+from django.contrib.sitemaps import ping_google
 from django.utils.text import slugify
 from django.core.validators import FileExtensionValidator
 from django.db import models
+
 from .user import User
 
 
@@ -89,3 +91,8 @@ class Product(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super(Product, self).save(*args, **kwargs)
+
+        try:
+            ping_google()
+        except Exception:
+            pass

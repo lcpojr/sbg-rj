@@ -44,7 +44,7 @@ DEFAULT_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
-    "froala_editor",
+    "tinymce",
 ]
 
 CUSTOM_APPS = ["apps.core", "apps.web"]
@@ -52,7 +52,6 @@ CUSTOM_APPS = ["apps.core", "apps.web"]
 INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS
 
 MIDDLEWARE = [
-    # "django.middleware.cache.UpdateCacheMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -60,7 +59,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    # "django.middleware.cache.FetchFromCacheMiddleware",
 ]
 
 ROOT_URLCONF = "sbg.urls"
@@ -116,16 +114,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # Cache backend
 # https://docs.djangoproject.com/en/2.2/topics/cache/
 
-# CACHES = {
-#    "default": {
-#        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-#        "LOCATION": "unique-snowflake",
-#    }
-# }
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "unique-snowflake",
+    }
+}
 
-# CACHE_MIDDLEWARE_ALIAS = "default"
-# CACHE_MIDDLEWARE_SECONDS = 3600
-# CACHE_MIDDLEWARE_KEY_PREFIX = "www.sbg-rj.org.br"
+CACHE_MIDDLEWARE_ALIAS = "default"
+CACHE_MIDDLEWARE_SECONDS = 3600
+CACHE_MIDDLEWARE_KEY_PREFIX = "www.sbg-rj.org.br"
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -155,7 +153,13 @@ MEDIA_ROOT = "/mediafiles/"
 
 # Text editors (Html and formated texts)
 
-FROALA_EDITOR_THEME = "gray"
+TINYMCE_DEFAULT_CONFIG = {
+    "plugins": "table,spellchecker,paste,searchreplace",
+    "theme": "advanced",
+    "cleanup_on_startup": True,
+    "custom_undo_redo_levels": 10,
+    "width": "100%",
+}
 
 # Admin theme
 # https://django-grappelli.readthedocs.io/en/latest/quickstart.html
