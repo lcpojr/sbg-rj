@@ -1,9 +1,13 @@
 import uuid
 
+from django.contrib.sitemaps import ping_google
 from django.utils.text import slugify
 from django.core.validators import FileExtensionValidator
 from django.db import models
+
 from .user import User
+
+from tinymce.models import HTMLField
 
 
 class News(models.Model):
@@ -15,8 +19,8 @@ class News(models.Model):
 
     # Identity
     title = models.CharField(max_length=100, verbose_name="Título da Notícia")
-    resume = models.TextField(verbose_name="Resumo da Notícia")
-    description = models.TextField(verbose_name="Descrição")
+    resume = HTMLField(verbose_name="Resumo da Notícia")
+    description = HTMLField(verbose_name="Descrição")
     publish_date = models.DateTimeField(verbose_name="Data da Notícia")
 
     slug = models.SlugField(
@@ -82,3 +86,9 @@ class News(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(News, self).save(*args, **kwargs)
+
+        try:
+            ping_google()
+        except Exception:
+            pass
+

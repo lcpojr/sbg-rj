@@ -3,7 +3,7 @@ Django==2.2
 Pillow
 
 # Admin plugins
-django-froala-editor
+django-tinymce
 django-grappelli
 
 # Database

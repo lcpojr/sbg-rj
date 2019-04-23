@@ -1,9 +1,13 @@
 import uuid
 
+from django.contrib.sitemaps import ping_google
 from django.utils.text import slugify
 from django.core.validators import FileExtensionValidator
 from django.db import models
+
 from .user import User
+
+from tinymce.models import HTMLField
 
 
 class Gallery(models.Model):
@@ -17,7 +21,7 @@ class Gallery(models.Model):
 
     # Identity
     title = models.CharField(max_length=100, unique=True, verbose_name="Title")
-    description = models.TextField(verbose_name="Descrição")
+    description = HTMLField(verbose_name="Descrição")
     category = models.CharField(
         max_length=50, verbose_name="Categoria", blank=True, choices=CATEGORY_CHOICES
     )
@@ -75,3 +79,9 @@ class Gallery(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Gallery, self).save(*args, **kwargs)
+
+        try:
+            ping_google()
+        except Exception:
+            pass
+

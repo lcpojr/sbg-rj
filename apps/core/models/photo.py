@@ -2,6 +2,7 @@ import uuid
 
 from django.core.validators import FileExtensionValidator
 from django.db import models
+
 from .user import User
 from .gallery import Gallery
 
@@ -63,3 +64,4 @@ class Photo(models.Model):
 
     def __str__(self):
         return "{}".format(self.image)
+
