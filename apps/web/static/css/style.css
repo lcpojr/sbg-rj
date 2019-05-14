@@ -709,6 +709,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #partners img {
   max-width: 90%;
+  height: 100px;
   opacity: 0.5;
   transition: 0.3s;
   padding: 15px 0;
