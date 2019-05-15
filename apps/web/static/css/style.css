@@ -152,7 +152,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #header {
   padding: 20px 0;
-  height: 84px;
+  height: 100px;
   transition: all 0.5s;
   z-index: 997;
   background: #fff;
@@ -185,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
 #header #logo img {
   padding: 0;
   margin-top: -10px;
-  width: 70px;
+  width: 80px;
 }
 
 /*--------------------------------------------------------------
@@ -379,6 +379,7 @@ h1, h2, h3, h4, h5, h6 {
 #nav-menu-container {
   float: right;
   margin: 0;
+  line-height: 3;
 }
 
 /* Nav Meu Styling */
@@ -1423,14 +1424,14 @@ body.mobile-nav-active #mobile-nav-toggle {
     bottom: 15px;
   }
   #header {
-    padding: 20px 0;
+    padding: 15px 0;
     height: 74px;
   }
   #header #logo h1 {
     font-size: 15px;
   }
   #header #logo img {
-    max-height: 40px;
+    max-height: 70px;
   }
   #nav-menu-container {
     display: none;
@@ -1451,6 +1452,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 @media (max-width: 767px) {
+  #header {
+    min-height: 75px;
+  }
+
   #intro .intro-content b {
     font-size: 15px;
   }
