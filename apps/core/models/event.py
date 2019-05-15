@@ -58,6 +58,8 @@ class Event(models.Model):
 
     apresentation = models.FileField(
         verbose_name="Apresentação",
+        null=True,
+        blank=True,
         upload_to="events/%Y-%m-%d/",
         validators=[
             FileExtensionValidator(

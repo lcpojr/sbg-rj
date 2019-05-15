@@ -53,8 +53,10 @@ SBG-RJ &#8211; {{ event.title }}
             <br/><br/>
             <img id="promo-image" src="{{ event.image.url }}" alt="Imagem da nóticia {{ event.title }}" title="{{ event.title }}" />
             <br/><br/>
+            {% if event.apresentation %}
             <b><a href="{{ event.apresentation.url }}" download>Download da apresentação</a></b>
             <br/><br/>
+            {% endif %}            
          </div>
       </div>
    </div>
