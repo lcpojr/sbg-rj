@@ -15,7 +15,7 @@ class Slideshow(models.Model):
 
     # Content
     title = models.CharField(max_length=100, verbose_name="Título", unique=True)
-    resume = models.CharField(max_length=250, verbose_name="Resumo")
+    resume = models.CharField(max_length=500, verbose_name="Resumo")
     image = models.ImageField(
         verbose_name="Imagem",
         upload_to="events/%Y-%m-%d/",
