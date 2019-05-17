@@ -224,8 +224,7 @@ class Publication(View):
     """
 
     def get(self, request):
-        publications = PublicationModel.objects.all().order_by("category", "created_at")
-
+        publications = PublicationModel.objects.all().order_by("category", "-created_at")
         return render(request, "publications.html", {"publications": publications})
 
 
