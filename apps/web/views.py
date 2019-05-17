@@ -203,7 +203,7 @@ class About(View):
     """
 
     def get(self, request):
-        directors = DirectorModel.objects.all().order_by("-started_at")
+        directors = DirectorModel.objects.all().order_by("started_at")
         directors_history = group_directors(directors)
         current_year = datetime.now().year
 
@@ -224,7 +224,7 @@ class Publication(View):
     """
 
     def get(self, request):
-        publications = PublicationModel.objects.all().order_by("category")
+        publications = PublicationModel.objects.all().order_by("category", "created_at")
 
         return render(request, "publications.html", {"publications": publications})
 
