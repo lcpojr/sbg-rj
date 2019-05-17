@@ -1483,6 +1483,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   #news .news-item {
     margin: 30px 10px;
   }
+  #events-detail #promo-image {
+    margin-bottom: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
 }
 
 #logo-footer {
