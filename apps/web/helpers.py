@@ -45,6 +45,7 @@ def group_directors(directors):
         if history == []:
             history.append({"year": director.started_at.year, "directors": [director]})
             check = False
+            continue
 
         for value in history:
             if value["year"] == director.started_at.year:
