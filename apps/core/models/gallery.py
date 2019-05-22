@@ -25,6 +25,7 @@ class Gallery(models.Model):
     category = models.CharField(
         max_length=50, verbose_name="Categoria", blank=True, choices=CATEGORY_CHOICES
     )
+    link_to_gallery = models.URLField(null=True)
 
     slug = models.SlugField(
         max_length=500,
