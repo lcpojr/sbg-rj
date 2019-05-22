@@ -171,7 +171,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header #logo h1 a {
-  color: #0c2e8a;
+  color: #555555;
   line-height: 1;
   display: inline-block;
 }
@@ -181,7 +181,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header #logo h1 a span {
-  color: #50d8af;
+  color: #555555;
 }
 
 #header #logo img {
@@ -737,6 +737,43 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #partners .owl-dot.active {
+  background-color: #50d8af;
+}
+
+/* Science Section
+--------------------------------*/
+
+#science {
+  padding: 30px 0;
+}
+
+#science img {
+  max-width: 90%;
+  height: 180px;
+  opacity: 0.5;
+  transition: 0.3s;
+  padding: 15px 0;
+}
+
+#science img:hover {
+  opacity: 1;
+}
+
+#science .owl-nav, #science .owl-dots {
+  margin-top: 5px;
+  text-align: center;
+}
+
+#science .owl-dot {
+  display: inline-block;
+  margin: 0 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ddd;
+}
+
+#science .owl-dot.active {
   background-color: #50d8af;
 }
 

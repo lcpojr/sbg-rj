@@ -18,7 +18,7 @@ class CustomGalleryAdmin(admin.ModelAdmin):
             "Informações básicas",
             {
                 "classes": ("grp-collapse grp-open",),
-                "fields": ("title", "description", "category", "image"),
+                "fields": ("title", "description", "category", "image","link_to_gallery"),
             },
         ),
         (

@@ -25,7 +25,7 @@ SBG-RJ &#8211; Sobre nós
       </li>
       <li><a href="{% url 'web:publications' %}">Publicações</a></li>
       <li><a href="{% url 'web:gallery' %}">Galeria</a></li>
-      <li class="menu-active"><a href="{% url 'web:regionals' %}">Regionais</a></li>
+      <li><a href="{% url 'web:regionals' %}">Regionais</a></li>
       <li><a href="{% url 'web:contact' %}">Contato</a></li>
    </ul>
 </nav>
@@ -173,28 +173,28 @@ SBG-RJ &#8211; Sobre nós
 <!--==========================
    Directors History
    ============================-->
-<section id="history" class="wow fadeInUp">
-   <div class="container">
-      <div class="section-header">
-         <h2>Histórico</h2>
-      </div>
-      <div class="owl-carousel news-carousel">
-         {% for item in directors_history %}
-         <div class="history-item">
-            <h4>Diretoria {{item.year}}</h4>
-            <hr>
-            {% for director in item.directors %}
-            <strong>{{ director.role }}</strong>
-            <div class="details">
-               <span>{{ director.full_name }}</span>
-            </div>
-            <hr>
-            {% endfor %}
-         </div>
-         {% endfor %}
-      </div>
-   </div>
-</section>
+<!-- <section id="history" class="wow fadeInUp"> -->
+   <!-- <div class="container"> -->
+      <!-- <div class="section-header"> -->
+         <!-- <h2>Histórico</h2> -->
+      <!-- </div> -->
+      <!-- <div class="owl-carousel news-carousel"> -->
+         <!-- {% for item in directors_history %} -->
+         <!-- <div class="history-item"> -->
+            <!-- <h4>Diretoria {{item.year}}</h4> -->
+            <!-- <hr> -->
+            <!-- {% for director in item.directors %} -->
+            <!-- <strong>{{ director.role }}</strong> -->
+            <!-- <div class="details"> -->
+               <!-- <span>{{ director.full_name }}</span> -->
+            <!-- </div> -->
+            <!-- <hr> -->
+            <!-- {% endfor %} -->
+         <!-- </div> -->
+         <!-- {% endfor %} -->
+      <!-- </div> -->
+   <!-- </div> -->
+<!-- </section> -->
 <!-- #news -->
 {% endif %}
 

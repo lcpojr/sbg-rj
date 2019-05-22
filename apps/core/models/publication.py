@@ -16,6 +16,7 @@ class Publication(models.Model):
         ("AS", "Anais de Simpósio"),
         ("AC", "Anais de Congresso"),
         ("CLIP", "Clippings"),
+        ("OT", "Outros")
     ]
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
