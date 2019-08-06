@@ -176,7 +176,7 @@ EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
 DEFAULT_FROM_EMAIL = "contato@sbg-rj.com.br"
-CONTACT_EMAILS = []
+CONTACT_EMAILS = ["marketing.sbgrjes@gmail.com"]
 
 # Permissions
 FILE_UPLOAD_PERMISSIONS = 777
