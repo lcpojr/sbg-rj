@@ -30,7 +30,7 @@ class Publication(models.Model):
     # Content
     document = models.FileField(
         verbose_name="Documento",
-        upload_to="publications/",
+        upload_to="publications/%Y-%m-%d/",
         validators=[
             FileExtensionValidator(["pdf"], "Formato de publicação inválido (.pdf)")
         ],

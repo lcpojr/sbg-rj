@@ -38,7 +38,7 @@ class Event(models.Model):
     # Content
     image = models.ImageField(
         verbose_name="Imagem",
-        upload_to="events/",
+        upload_to="events/%Y-%m-%d/",
         validators=[
             FileExtensionValidator(
                 ["png", "jpg", "jpeg"], "Formato de imagem inválido (.png, .jpg, jpeg)"
@@ -48,7 +48,7 @@ class Event(models.Model):
 
     icon = models.ImageField(
         verbose_name="Ícone",
-        upload_to="events/",
+        upload_to="events/%Y-%m-%d/",
         validators=[
             FileExtensionValidator(
                 ["png", "jpg", "jpeg"], "Formato de ícone inválido (.png, .jpg, jpeg)"
@@ -60,7 +60,7 @@ class Event(models.Model):
         verbose_name="Apresentação",
         null=True,
         blank=True,
-        upload_to="events/",
+        upload_to="events/%Y-%m-%d/",
         validators=[
             FileExtensionValidator(
                 ["pdf", "ppt", "pptx"],

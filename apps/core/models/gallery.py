@@ -37,7 +37,7 @@ class Gallery(models.Model):
     # Content
     image = models.ImageField(
         verbose_name="Imagem",
-        upload_to="gallery/",
+        upload_to="gallery/%Y-%m-%d",
         validators=[
             FileExtensionValidator(
                 ["png", "jpg", "jpeg"], "Formato de imagem inválido (.png, .jpg, .jpeg)"
