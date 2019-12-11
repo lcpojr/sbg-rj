@@ -18,7 +18,7 @@ class Slideshow(models.Model):
     resume = models.CharField(max_length=500, verbose_name="Resumo")
     image = models.ImageField(
         verbose_name="Imagem",
-        upload_to="slideshow/%Y-%m-%d/",
+        upload_to="slideshow/",
         validators=[
             FileExtensionValidator(
                 ["png", "jpg", "jpeg"], "Formato de imagem inválido (.png, .jpg, jpeg)"
